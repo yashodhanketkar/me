@@ -1,5 +1,11 @@
+import MainUIWrapper from "./components";
+
 function App() {
-  return <h1>Home</h1>;
+  return (
+    <MainUIWrapper>
+      <h1>Hello world</h1>
+    </MainUIWrapper>
+  );
 }
 
 export default App;

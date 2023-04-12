@@ -11,5 +11,27 @@ html {
 }
 
 body {
-  @apply bg-gray-200 text-gray-800;
+  @apply bg-gray-200 text-gray-800 overflow-x-hidden;
+}
+
+::selection {
+  @apply bg-gray-600 text-white;
+}
+
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-950;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-800 hover:bg-gray-700;
+}
+
+@layer components {
+  .navitem {
+    @apply border-b-4 border-black hover:border-white;
+  }
 }
