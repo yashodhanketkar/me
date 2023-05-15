@@ -11,11 +11,11 @@ html {
 }
 
 body {
-  @apply bg-gray-200 text-gray-800 overflow-x-hidden;
+  @apply bg-stone-200 text-stone-800 dark:bg-slate-800 dark:text-slate-200 overflow-x-hidden;
 }
 
 ::selection {
-  @apply bg-gray-600 text-white;
+  @apply bg-stone-600 text-white;
 }
 
 ::-webkit-scrollbar {
@@ -23,15 +23,15 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-950;
+  @apply bg-stone-950;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-800 hover:bg-gray-700;
+  @apply bg-stone-800 hover:bg-stone-700;
 }
 
 @layer components {
   .navitem {
-    @apply border-b-4 border-black hover:border-white;
+    @apply hover:bg-stone-300 hover:dark:bg-slate-600/50 p-2;
   }
 }

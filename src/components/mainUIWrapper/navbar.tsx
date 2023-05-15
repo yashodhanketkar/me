@@ -1,6 +1,6 @@
 export const Navbar = () => {
   return (
-    <nav className="flex text-base items-center gap-2 pt-1 text-white bg-black [&>*]:navitem">
+    <nav className="[&>*]:navitem flex text-base border-black rounded-full border-1 overflow-hidden drop-shadow-lg shadow-black bg-stone-200 dark:bg-slate-700/50">
       <ul>
         <a href="#">Profile</a>
       </ul>
