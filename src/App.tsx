@@ -1,9 +1,16 @@
 import MainUIWrapper from "./components";
+import { Routes, Route, Outlet } from "react-router-dom";
+import { Home, Projects, Research } from "./pages";
 
 function App() {
   return (
     <MainUIWrapper>
-      <h1>Hello world</h1>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/research" element={<Research />} />
+        <Route path="/projects" element={<Projects />} />
+      </Routes>
+      <Outlet />
     </MainUIWrapper>
   );
 }
