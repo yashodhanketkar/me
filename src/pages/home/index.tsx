@@ -1,9 +1,9 @@
+import { ProfileCard } from "./profile";
+
 export const HomePage = () => {
   return (
-    <div>
-      <h1>heade home</h1>
-      <h2>sub home</h2>
-      <p>para home</p>
+    <div className="flex justify-center mt-10 xl:mt-[25vh]">
+      <ProfileCard />
     </div>
   );
 };

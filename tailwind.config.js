@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         dancingScript: ["Dancing Script"],
+        comfortaa: ["Comfortaa"],
       },
     },
   },
