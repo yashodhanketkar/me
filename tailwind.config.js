@@ -6,6 +6,7 @@ export default {
       fontFamily: {
         dancingScript: ["Dancing Script"],
         comfortaa: ["Comfortaa"],
+        flamenco: ["Flamenco"],
       },
     },
   },
