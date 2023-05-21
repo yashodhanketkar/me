@@ -1,5 +1,5 @@
 import { ResearchCard } from "./research";
-import { researchWorks } from "../../data/research";
+import { researchWorks } from "../../common";
 
 export const ResearchPage = () => {
   return (

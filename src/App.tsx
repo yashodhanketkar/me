@@ -1,4 +1,4 @@
-import MainUIWrapper from "./components";
+import MainUIWrapper from "./common";
 import { Routes, Route, Outlet } from "react-router-dom";
 import { Home, Projects, Research } from "./pages";
 
