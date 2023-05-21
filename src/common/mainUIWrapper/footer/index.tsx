@@ -34,7 +34,9 @@ export const Footer = (): React.ReactElement => {
           </div>
         </div>
         <div className="inline-flex justify-end w-full">
-          <span className="">2023 © Yashodhan Ketkar</span>
+          <span className="text-right">
+            2023 © <span className="inline-block">Yashodhan Ketkar</span>
+          </span>
         </div>
       </div>
     </footer>
