@@ -15,7 +15,7 @@ export const ResearchCard = (props: IResearchWork) => {
         {journal}, {year}
       </h3>
       <a
-        className="italic"
+        className="italic underline"
         href={`https://doi.org/${doi}`}
         target="_blank"
         rel="noopener noreferrer"
