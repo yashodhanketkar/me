@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ProfilePhoto from "../../assets/photo.jpg";
+import ProfilePhoto from "@/assets/photo.jpg";
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 
 export const ProfileCard = () => {

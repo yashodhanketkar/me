@@ -1,5 +1,5 @@
 import { Navbar } from "../navbar";
-import { useTheme } from "../../hooks/useTheme";
+import { useTheme } from "@/common/hooks/useTheme";
 import { CgDarkMode } from "react-icons/cg";
 import { NavLink } from "react-router-dom";
 

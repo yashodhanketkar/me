@@ -1,4 +1,4 @@
-import { IResearchWork } from "../../common";
+import { IResearchWork } from "@/common";
 
 export const ResearchCard = (props: IResearchWork) => {
   const { title, authors, journal, year, doi, abstract } = props;

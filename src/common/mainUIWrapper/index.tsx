@@ -1,5 +1,4 @@
-import { Footer } from "./footer";
-import { Header } from "./header";
+import { Footer, Header } from "./components";
 
 const MainUIWrapper = ({
   children,
