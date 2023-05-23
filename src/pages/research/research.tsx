@@ -7,8 +7,8 @@ export const ResearchCard = (props: IResearchWork) => {
     <div className="flex flex-col items-center w-full gap-1 p-4 text-center shadow-lg lg:shadow-none rounded-xl ring-1 lg:ring-0 ring-slate-600/10 dark:ring-stone-200/10 shadow-slate-600/25 dark:shadow-stone-400/10">
       <h1 className="font-serif text-2xl font-bold ">{title}</h1>
       <h2 className="inline-flex gap-1">
-        {authors.map((author) => (
-          <span>{author}.</span>
+        {authors.map((author: string, i: number) => (
+          <span key={i}>{author}.</span>
         ))}
       </h2>
       <h3>
