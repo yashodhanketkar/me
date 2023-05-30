@@ -26,5 +26,3 @@ export const ProjectCard = (props: IProjectCard) => {
     </div>
   );
 };
-
-// @apply bg-stone-200 text-stone-800 dark:bg-slate-800 dark:text-slate-200 overflow-x-hidden;

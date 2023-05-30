@@ -17,14 +17,18 @@ export const ProfileCard = () => {
         </span>
         <div className="flex flex-col items-center justify-around w-full gap-2 lg:flex-row">
           <Link
-            to="/"
+            to="https://github.com/yashodhanketkar"
+            target="blank"
+            rel="noopener norefere"
             className="text-white bg-stone-800 hover:bg-stone-700 profile-links"
           >
             <AiFillGithub size={20} className="block md:hidden" />
             GitHub
           </Link>
           <Link
-            to="/"
+            to="https://www.linkedin.com/in/yashodhanketkar/"
+            target="blank"
+            rel="noopener norefere"
             className="text-white bg-blue-600 hover:bg-blue-500 profile-links"
           >
             <AiFillLinkedin size={20} className="block md:hidden" />
