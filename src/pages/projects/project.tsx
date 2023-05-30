@@ -7,7 +7,7 @@ interface IProjectCard {
 export const ProjectCard = (props: IProjectCard) => {
   const { projectWork } = props;
   return (
-    <div className="flex flex-col items-center w-full gap-1 p-4 text-center shadow-lg sm:w-11/12 lg:w-2/3 lg:shadow-none rounded-xl ring-1 lg:ring-0 ring-slate-600/10 dark:ring-stone-200/10 shadow-slate-600/25 dark:shadow-stone-400/10">
+    <div className="flex flex-col items-center w-full gap-1 px-4 py-4 text-center shadow-lg lg:py-0 sm:w-11/12 lg:w-2/3 lg:shadow-none rounded-xl ring-1 lg:ring-0 ring-slate-600/10 dark:ring-stone-200/10 shadow-slate-600/25 dark:shadow-stone-400/10">
       <div className="flex-1">
         <h1 className="font-serif text-2xl font-semibold">
           {projectWork.name}

@@ -20,7 +20,7 @@ export const ProfileCard = () => {
             to="https://github.com/yashodhanketkar"
             target="blank"
             rel="noopener norefere"
-            className="text-white bg-stone-800 hover:bg-stone-700 profile-links"
+            className="text-white bg-stone-800 hover:bg-stone-700 profile-links ring-0"
           >
             <AiFillGithub size={20} className="block md:hidden" />
             GitHub
@@ -29,7 +29,7 @@ export const ProfileCard = () => {
             to="https://www.linkedin.com/in/yashodhanketkar/"
             target="blank"
             rel="noopener norefere"
-            className="text-white bg-blue-600 hover:bg-blue-500 profile-links"
+            className="text-white bg-blue-600 hover:bg-blue-500 profile-links ring-0"
           >
             <AiFillLinkedin size={20} className="block md:hidden" />
             <span>LinkedIn</span>
