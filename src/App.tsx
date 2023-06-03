@@ -1,6 +1,6 @@
 import MainUIWrapper from "./common";
 import { Routes, Route, Outlet } from "react-router-dom";
-import { Home, Projects, Research } from "./pages";
+import { Home, Projects, Research, Resume } from "./pages";
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/research" element={<Research />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/resume" element={<Resume />} />
       </Routes>
       <Outlet />
     </MainUIWrapper>

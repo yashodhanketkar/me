@@ -13,8 +13,9 @@ export const Navbar = (props: INavbar) => {
         Home
       </NavLink>
       <NavLink to="/research">Research</NavLink>
-      <NavLink className="pr-2" to="/projects">
-        Projects
+      <NavLink to="/projects">Projects</NavLink>
+      <NavLink className="pr-2" to="/resume">
+        Resume
       </NavLink>
     </nav>
   );
