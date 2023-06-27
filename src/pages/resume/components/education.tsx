@@ -4,7 +4,7 @@ const EducationWrapper = (props: IEducation) => {
   const { university, graduation: gradyear, cgpa, project } = props;
   return (
     <div className="flex flex-col">
-      <span className="font-semibold">{university}</span>
+      <span className="font-bold">{university}</span>
       <span>
         {gradyear}
         {cgpa ? ` - (${cgpa})` : ""}
