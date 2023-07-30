@@ -1,10 +1,28 @@
+import { Stack, Typography } from "@mui/material";
+
 export const ResumeTitle = () => {
   return (
-    <div className="flex flex-col items-center gap-2">
-      <h1 className="font-serif text-3xl font-bold text-black">
+    <Stack
+      width={"100%"}
+      display={"flex"}
+      alignItems={"center"}
+      spacing={{ xs: 0.1, md: 1 }}
+    >
+      <Typography
+        noWrap
+        variant="h4"
+        sx={{
+          fontSize: {
+            xs: 24,
+            md: 36,
+          },
+        }}
+      >
         Yashodhan Ketkar
-      </h1>
-      <h2 className="font-serif text-sm">Web developer and ML Researcher</h2>
-    </div>
+      </Typography>
+      <Typography fontFamily="Comfortaa" variant="subtitle1" textAlign="center">
+        Web developer and ML Researcher
+      </Typography>
+    </Stack>
   );
 };

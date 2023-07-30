@@ -16,8 +16,8 @@ export const navs: nav[] = [
     link: "/projects",
     name: "Projects",
   },
-  // {
-  //   link: "/resume",
-  //   name: "Resume",
-  // },
+  {
+    link: "/resume",
+    name: "Resume",
+  },
 ];

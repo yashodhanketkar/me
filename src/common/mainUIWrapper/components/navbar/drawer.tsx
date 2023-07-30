@@ -7,6 +7,7 @@ import {
   useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
 import { navs, nav } from "./navs";
 import { Link as RouterLink, useLocation } from "react-router-dom";
@@ -75,6 +76,16 @@ export const NavDrawer = () => {
             gap: 2,
           }}
         >
+          <IconButton
+            onClick={handleDrawer}
+            sx={{
+              position: "absolute",
+              top: 10,
+              right: 10,
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
           {navs.map((nav) => (
             <NavDrawerFactory
               handleDrawer={handleDrawer}

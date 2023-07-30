@@ -1,3 +1,4 @@
+import { Avatar, Grid, Typography, useTheme } from "@mui/material";
 import ProfilePicture from "@/assets/photo.jpg";
 import {
   FaTwitter,
@@ -38,38 +39,77 @@ const socialIcon = (socialType: string) => {
 
 const SocialLinkFactory = (props: ISocialLinkFactory) => {
   const { socialObject } = props;
+  const {
+    palette: { mode },
+  } = useTheme();
   return (
-    <a
+    <Typography
+      component="a"
       href={socialObject.url}
       target="_blank"
       rel="noreferer noopener"
-      className="inline-flex items-center gap-2 w-fit"
+      display="inline-flex"
+      gap={1}
+      sx={{
+        ":hover": {
+          color: mode === "dark" ? "red" : "inherit",
+        },
+      }}
     >
       {socialIcon(socialObject.type)}
-      <span>
+      <Typography>
         {socialObject.username ? socialObject.username : socialObject.url}
-      </span>
-    </a>
+      </Typography>
+    </Typography>
   );
 };
 
 export const ResumeHeader = () => {
   return (
-    <div className="inline-flex">
-      <div className="w-5/6">
-        <ul className="flex flex-col gap-2">
-          {socialList.map((social: ISocials, i: number) => (
-            <SocialLinkFactory key={i} socialObject={social} />
-          ))}
-        </ul>
-      </div>
-      <div className="flex items-center justify-center w-1/6">
-        <img
+    <Grid spacing={2} container>
+      <Grid
+        item
+        xs={12}
+        md={4}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          order: { xs: 1, md: 2 },
+        }}
+      >
+        <Avatar
+          sx={{
+            height: {
+              xs: "7rem",
+              md: "10rem",
+            },
+            width: {
+              xs: "7rem",
+              md: "10rem",
+            },
+          }}
           src={ProfilePicture}
-          alt="Profile Picture"
-          className="rounded-full aspect-square"
-        />
-      </div>
-    </div>
+          alt="yashodhanketkar"
+        >
+          Y
+        </Avatar>
+      </Grid>
+      <Grid
+        item
+        xs={12}
+        md={8}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 1,
+          justifyContent: "center",
+          order: { xs: 2, md: 1 },
+        }}
+      >
+        {socialList.map((social: ISocials) => (
+          <SocialLinkFactory key={social.url} socialObject={social} />
+        ))}
+      </Grid>
+    </Grid>
   );
 };

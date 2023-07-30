@@ -1,14 +1,49 @@
-import { ResumeTitle, ResumeHeader, ResumeEducation } from "./components";
+import { useRef } from "react";
+import { Button, Card, Container, Divider, useTheme } from "@mui/material";
+import {
+  ResumeTitle,
+  ResumeHeader,
+  ResumeEducation,
+  ResumeSkills,
+} from "./components";
 
 export const ResumePage = () => {
+  const {
+    palette: { mode },
+  } = useTheme();
+
+  const pageRef = useRef();
+
   return (
-    <div className="flex justify-center w-full mt-4 mb-4">
-      <div className="flex flex-col w-5/12 gap-4 p-4 text-black bg-white rounded-lg ring-1 ring-black/10 [&>*]:border-b-2 [&>*]:border-black [&>*]:pb-4">
+    <Container
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+      }}
+      disableGutters
+    >
+      <Card
+        sx={{
+          padding: {
+            xs: 2,
+            md: 4,
+          },
+          width: { xs: "85%", md: "75%", xl: "65%" },
+          borderRadius: 2,
+          backgroundColor: mode === "dark" ? "inherit" : "white",
+          display: "flex",
+          flexDirection: "column",
+          gap: 2,
+        }}
+      >
         <ResumeTitle />
+        <Divider />
         <ResumeHeader />
+        <Divider />
         <ResumeEducation />
-        <div>skills</div>
-      </div>
-    </div>
+        <Divider />
+        <ResumeSkills />
+      </Card>
+    </Container>
   );
 };

@@ -19,10 +19,10 @@ const routes: route[] = [
     path: "/projects",
     element: <Projects />,
   },
-  // {
-  //   path: "/resume",
-  //   element: <Resume />,
-  // },
+  {
+    path: "/resume",
+    element: <Resume />,
+  },
 ];
 
 const MainRouter = () => {

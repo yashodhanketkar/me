@@ -1,25 +1,27 @@
+import { Stack, Typography } from "@mui/material";
 import { educationList, IEducation } from "@/common/data/resume";
 
 const EducationWrapper = (props: IEducation) => {
-  const { university, graduation: gradyear, cgpa, project } = props;
+  const { university, degree, graduation: gradyear, cgpa, project } = props;
   return (
-    <div className="flex flex-col">
-      <span className="font-bold">{university}</span>
-      <span>
+    <Stack>
+      <Typography fontWeight={700}>{degree}</Typography>
+      <Typography>{university}</Typography>
+      <Typography>
         {gradyear}
-        {cgpa ? ` - (${cgpa})` : ""}
-      </span>
+        {cgpa && ` - (${cgpa})`}
+      </Typography>
       <span>{project}</span>
-    </div>
+    </Stack>
   );
 };
 
 export const ResumeEducation = () => {
   return (
-    <div className="flex flex-col gap-1">
-      {educationList.map((edu: IEducation, i: number) => (
-        <EducationWrapper key={i} {...edu} />
+    <Stack spacing={2}>
+      {educationList.map((edu: IEducation) => (
+        <EducationWrapper key={edu.degree} {...edu} />
       ))}
-    </div>
+    </Stack>
   );
 };

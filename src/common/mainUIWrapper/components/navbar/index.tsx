@@ -1,5 +1,5 @@
-import { NavLink, useLocation } from "react-router-dom";
-import { Box, PaletteMode, Typography, useTheme, Link } from "@mui/material";
+import { useLocation } from "react-router-dom";
+import { Box, PaletteMode, useTheme, Link } from "@mui/material";
 import { navs, nav } from "./navs";
 import { Link as RouterLink } from "react-router-dom";
 

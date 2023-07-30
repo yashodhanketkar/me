@@ -42,21 +42,49 @@ export interface IEducation {
 export const educationList: IEducation[] = [
   {
     university: "University of Mumbai",
-    degree: "Masters in IT Engineering",
+    degree: "Masters - IT Engineering",
     graduation: 2022,
     project: "Weightage based machine learning model selection system.",
     cgpa: 9.2,
+  },
+  {
+    university: "University of Mumbai",
+    degree: "Bachelors - Civil Engineering",
+    graduation: 2017,
+    project:
+      "Design and analysis of overhead water tank for rural water supply scheme a case study.",
   },
 ];
 
 export interface ISkills {
   name: string;
-  level?: string;
+  level?: 1 | 2 | 3;
   years?: number;
 }
 
-export const skillList = [
+export const skillList: ISkills[] = [
   {
     name: "Python",
+    level: 3,
+    years: 9,
+  },
+  {
+    name: "Javascript",
+    level: 3,
+    years: 3,
+  },
+  {
+    name: "Typescript",
+    level: 3,
+    years: 2,
+  },
+  {
+    name: "Java",
+    level: 2,
+    years: 3,
+  },
+  {
+    name: "C/C++",
+    level: 2,
   },
 ];
