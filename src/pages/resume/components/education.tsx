@@ -18,7 +18,7 @@ export const ResumeEducation = () => {
   return (
     <div className="flex flex-col gap-1">
       {educationList.map((edu: IEducation, i: number) => (
-        <EducationWrapper {...edu} />
+        <EducationWrapper key={i} {...edu} />
       ))}
     </div>
   );

@@ -1,30 +1,51 @@
+import { Box, Paper, Typography, Stack } from "@mui/material";
 import { IResearchWork } from "@/common";
 
 export const ResearchCard = (props: IResearchWork) => {
   const { title, authors, journal, year, doi, abstract } = props;
 
   return (
-    <div className="flex flex-col items-center w-full gap-1 p-4 text-center shadow-lg lg:shadow-none rounded-xl ring-1 lg:ring-0 ring-slate-600/10 dark:ring-stone-200/10 shadow-slate-600/25 dark:shadow-stone-400/10">
-      <h1 className="font-serif text-2xl font-bold ">{title}</h1>
-      <h2 className="inline-flex gap-1">
-        {authors.map((author: string, i: number) => (
-          <span key={i}>{author}.</span>
-        ))}
-      </h2>
-      <h3>
-        {journal}, {year}
-      </h3>
-      <a
-        className="italic underline"
-        href={`https://doi.org/${doi}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {doi}
-      </a>
-      <p className="overflow-hidden font-serif text-justify max-h-36 text-stone-600 dark:text-slate-400">
-        {abstract}
-      </p>
-    </div>
+    <Paper>
+      <Stack gap={1} padding={4}>
+        <Typography
+          sx={{
+            fontFamily: "serif",
+            fontWeight: 600,
+          }}
+          variant="h4"
+        >
+          {title}
+        </Typography>
+        <Box display={"inline-flex"} gap={1}>
+          {authors.map((author: string, i: number) => (
+            <Typography variant="subtitle1" key={i}>
+              {author}.
+            </Typography>
+          ))}
+        </Box>
+        <Typography variant="subtitle2">
+          {journal}, {year}
+        </Typography>
+        <Typography
+          component="a"
+          sx={{
+            textDecoration: "underline",
+            fontStyle: "oblique",
+          }}
+          href={`https://doi.org/${doi}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {doi}
+        </Typography>
+        <Typography
+          sx={{
+            textAlign: "justify",
+          }}
+        >
+          {abstract}
+        </Typography>
+      </Stack>
+    </Paper>
   );
 };

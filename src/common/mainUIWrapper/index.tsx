@@ -1,4 +1,6 @@
 import { Footer, Header } from "./components";
+import { Box, Container, CssBaseline, Stack } from "@mui/material";
+import { ThemeWrapper } from "./theme";
 
 const MainUIWrapper = ({
   children,
@@ -6,11 +8,22 @@ const MainUIWrapper = ({
   children: React.ReactNode;
 }): React.ReactElement => {
   return (
-    <div className="flex flex-col w-screen min-h-screen [&>*]:pl-2 [&>*]:pr-4">
-      <Header />
-      <main className="py-1 pl-2 pr-4 mb-auto">{children}</main>
-      <Footer />
-    </div>
+    <Container
+      sx={{
+        minHeight: "100vh",
+      }}
+      maxWidth={false}
+      disableGutters
+    >
+      <ThemeWrapper>
+        <CssBaseline />
+        <Stack minHeight={"100vh"} spacing={2} justifyContent="space-between">
+          <Header />
+          <Box sx={{ marginBottom: "auto" }}>{children}</Box>
+          <Footer />
+        </Stack>
+      </ThemeWrapper>
+    </Container>
   );
 };
 

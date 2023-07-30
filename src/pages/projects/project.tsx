@@ -1,4 +1,5 @@
 import { IProjectWork } from "@/common/data/project";
+import { Box, Button, Paper, Typography, Stack, useTheme } from "@mui/material";
 
 interface IProjectCard {
   projectWork: IProjectWork;
@@ -6,23 +7,71 @@ interface IProjectCard {
 
 export const ProjectCard = (props: IProjectCard) => {
   const { projectWork } = props;
+  const {
+    palette: { mode },
+  } = useTheme();
+
   return (
-    <div className="flex flex-col items-center w-full gap-1 px-4 py-4 text-center shadow-lg lg:py-0 sm:w-11/12 lg:w-2/3 lg:shadow-none rounded-xl ring-1 lg:ring-0 ring-slate-600/10 dark:ring-stone-200/10 shadow-slate-600/25 dark:shadow-stone-400/10">
-      <div className="flex-1">
-        <h1 className="font-serif text-2xl font-semibold">
-          {projectWork.name}
-        </h1>
-        <span>({projectWork.year})</span>
-        <p>{projectWork.description}</p>
-      </div>
-      <a
-        href={projectWork.url}
-        target="_blank"
-        rel="noopener norefere"
-        className="px-4 py-2 my-2 font-semibold rounded-full bg-stone-800 text-stone-200 hover:bg-stone-600 dark:bg-slate-200 dark:text-slate-800 hover:dark:bg-slate-400"
+    <Paper
+      sx={{
+        width: {
+          xs: "100%",
+          md: "75%",
+          lg: "60%",
+          xl: "50%",
+        },
+      }}
+    >
+      <Stack
+        sx={{
+          padding: {
+            xs: 2,
+          },
+          alignItems: "center",
+        }}
+        spacing={1}
       >
-        Source Code
-      </a>
-    </div>
+        <Typography
+          variant="h4"
+          sx={{
+            fontFamily: "serif",
+            fontSize: 24,
+            fontWeight: 600,
+            textAlign: "center",
+          }}
+        >
+          {projectWork.name}
+        </Typography>
+        <Typography variant="subtitle1">({projectWork.year})</Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            textAlign: {
+              xs: "justify",
+              md: "left",
+            },
+          }}
+        >
+          {projectWork.description}
+        </Typography>
+        <Button
+          variant="contained"
+          component="a"
+          href={projectWork.url}
+          target="_blank"
+          rel="noopener norefere"
+          sx={{
+            width: 150,
+            color: "white",
+            backgroundColor: mode === "dark" ? "red" : "black",
+            ":hover": {
+              backgroundColor: mode === "dark" ? "#bb0000" : "#444444",
+            },
+          }}
+        >
+          Source Code
+        </Button>
+      </Stack>
+    </Paper>
   );
 };

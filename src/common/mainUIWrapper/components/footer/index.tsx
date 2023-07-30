@@ -1,44 +1,18 @@
-import { AiOutlineTwitter, AiFillGithub, AiOutlineMail } from "react-icons/ai";
-import { FaOrcid } from "react-icons/fa";
+import { Grid, Paper } from "@mui/material";
+import { FooterSocials } from "./social";
+import { FooterInfo } from "./info";
 
 export const Footer = (): React.ReactElement => {
   return (
-    <footer className="py-1 bg-black dark:bg-slate-950 text-stone-200">
-      <div className="flex justify-between">
-        <div className="flex flex-col">
-          <div className="inline-flex gap-2">
-            <a href="mailto:kykyashodhan@gmail.com">
-              <AiOutlineMail size={24} />
-            </a>
-            <a
-              href="https://twitter.com/yashodhanketkar"
-              target={"_blank"}
-              rel={"noreferer noppener nofollower"}
-            >
-              <AiOutlineTwitter size={24} />
-            </a>
-            <a
-              href="https://github.com/yashodhanketkar"
-              target={"_blank"}
-              rel={"noreferer noppener nofollower"}
-            >
-              <AiFillGithub size={24} />
-            </a>
-            <a
-              href="https://orcid.org/0000-0003-1441-3247"
-              target={"_blank"}
-              rel={"noreferer noppener nofollower"}
-            >
-              <FaOrcid size={24} />
-            </a>
-          </div>
-        </div>
-        <div className="inline-flex justify-end w-full">
-          <span className="text-right">
-            2023 © <span className="inline-block">Yashodhan Ketkar</span>
-          </span>
-        </div>
-      </div>
-    </footer>
+    <Paper>
+      <Grid spacing={1} padding={1} container>
+        <Grid item xs={12} sm={6}>
+          <FooterSocials />
+        </Grid>
+        <Grid item xs={12}>
+          <FooterInfo />
+        </Grid>
+      </Grid>
+    </Paper>
   );
 };

@@ -1,22 +1,62 @@
-import { Navbar } from "../navbar";
-import { useTheme } from "@/common/hooks/useTheme";
-import { CgDarkMode } from "react-icons/cg";
-import { NavLink } from "react-router-dom";
+import {
+  AppBar,
+  Box,
+  Container,
+  IconButton,
+  Toolbar,
+  Typography,
+  useTheme,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import { ThemeSwitch } from "./themeSwitch";
+import { NavDrawer, Navbar } from "../navbar";
 
 export const Header = (): React.ReactElement => {
-  const [handleTheme] = useTheme();
+  const {
+    palette: { mode },
+  } = useTheme();
+
   return (
-    <header className="flex flex-wrap items-center justify-between py-2 text-2xl font-semibold">
-      <NavLink className="order-1 w-1/2 sm:w-auto" to="/">
-        <span className="font-dancingScript">Yashodhan</span>
-      </NavLink>
-      <Navbar externalClassName="order-3 sm:order-2 mr-auto ml-auto" />
-      <button
-        className="inline-flex justify-end order-2 w-1/2 text-black sm:w-auto sm:order-3 dark:text-slate-200"
-        onClick={handleTheme}
+    <Container maxWidth={false} disableGutters>
+      <AppBar
+        sx={{
+          backgroundColor: "transparent",
+          color: mode === "light" ? "black" : "white",
+          boxShadow: "none",
+        }}
+        position="static"
       >
-        <CgDarkMode />
-      </button>
-    </header>
+        <Toolbar>
+          <Typography
+            sx={{
+              fontWeight: 700,
+              fontFamily: "Dancing Script",
+              ":hover": { color: mode === "dark" ? "red" : "inherit" },
+            }}
+            variant="h5"
+            component={"a"}
+            href="/"
+            noWrap
+            className="font-dancingScript"
+          >
+            Yashodhan
+          </Typography>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: "flex",
+              justifyContent: {
+                xs: "end",
+                sm: "center",
+              },
+            }}
+          >
+            <Navbar />
+            <NavDrawer />
+          </Box>
+          <ThemeSwitch />
+        </Toolbar>
+      </AppBar>
+    </Container>
   );
 };
