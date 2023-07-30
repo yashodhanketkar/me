@@ -7,7 +7,7 @@ const ThemeWrapper = ({
 }: {
   children: React.ReactNode;
 }): React.ReactElement => {
-  const [mode, setMode] = useState<"dark" | "light">("light");
+  const [mode, setMode] = useState<"dark" | "light">("dark");
 
   useEffect(() => {
     let localTheme = localStorage.getItem("theme");

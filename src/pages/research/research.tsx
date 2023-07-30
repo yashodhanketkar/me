@@ -1,11 +1,19 @@
-import { Box, Paper, Typography, Stack } from "@mui/material";
+import { Box, Paper, Typography, Stack, useTheme } from "@mui/material";
 import { IResearchWork } from "@/common";
 
 export const ResearchCard = (props: IResearchWork) => {
   const { title, authors, journal, year, doi, abstract } = props;
+  const {
+    palette: { mode },
+  } = useTheme();
 
   return (
-    <Paper>
+    <Paper
+      sx={{
+        backgroundColor: mode === "light" ? "white" : "inherit",
+        borderRadius: 3,
+      }}
+    >
       <Stack gap={1} padding={4}>
         <Typography
           sx={{

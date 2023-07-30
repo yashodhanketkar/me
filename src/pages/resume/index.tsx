@@ -5,6 +5,7 @@ import {
   ResumeHeader,
   ResumeEducation,
   ResumeSkills,
+  ResumeExperience,
 } from "./components";
 
 export const ResumePage = () => {
@@ -28,7 +29,7 @@ export const ResumePage = () => {
             xs: 2,
             md: 4,
           },
-          width: { xs: "85%", md: "75%", xl: "65%" },
+          width: { xs: "85%", md: "70%", xl: "65%" },
           borderRadius: 2,
           backgroundColor: mode === "dark" ? "inherit" : "white",
           display: "flex",
@@ -39,6 +40,8 @@ export const ResumePage = () => {
         <ResumeTitle />
         <Divider />
         <ResumeHeader />
+        <Divider />
+        <ResumeExperience />
         <Divider />
         <ResumeEducation />
         <Divider />

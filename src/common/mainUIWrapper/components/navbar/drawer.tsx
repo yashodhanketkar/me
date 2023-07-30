@@ -4,6 +4,7 @@ import {
   Link,
   PaletteMode,
   Stack,
+  SwipeableDrawer,
   useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -47,12 +48,45 @@ const NavDrawerFactory = (props: {
   );
 };
 
-export const NavDrawer = () => {
-  const [open, setOpen] = useState(false);
+const CoreNavDrawer = ({ handleDrawer }: { handleDrawer: () => void }) => {
   const { pathname } = useLocation();
   const {
     palette: { mode },
   } = useTheme();
+
+  return (
+    <Stack
+      sx={{
+        padding: 4,
+        alignItems: "center",
+        gap: 2,
+      }}
+    >
+      <IconButton
+        onClick={handleDrawer}
+        sx={{
+          position: "absolute",
+          top: 10,
+          right: 10,
+        }}
+      >
+        <CloseIcon />
+      </IconButton>
+      {navs.map((nav) => (
+        <NavDrawerFactory
+          handleDrawer={handleDrawer}
+          key={nav.link}
+          nav={nav}
+          pathname={pathname}
+          mode={mode}
+        />
+      ))}
+    </Stack>
+  );
+};
+
+export const NavDrawer = () => {
+  const [open, setOpen] = useState(false);
   let handleDrawer = () => setOpen((prev) => !prev);
 
   return (
@@ -68,35 +102,16 @@ export const NavDrawer = () => {
       >
         <MenuIcon />
       </IconButton>
-      <Drawer open={open} onClose={handleDrawer} anchor="top">
-        <Stack
-          sx={{
-            padding: 4,
-            alignItems: "center",
-            gap: 2,
-          }}
-        >
-          <IconButton
-            onClick={handleDrawer}
-            sx={{
-              position: "absolute",
-              top: 10,
-              right: 10,
-            }}
-          >
-            <CloseIcon />
-          </IconButton>
-          {navs.map((nav) => (
-            <NavDrawerFactory
-              handleDrawer={handleDrawer}
-              key={nav.link}
-              nav={nav}
-              pathname={pathname}
-              mode={mode}
-            />
-          ))}
-        </Stack>
-      </Drawer>
+
+      <SwipeableDrawer
+        onOpen={handleDrawer}
+        open={open}
+        onClose={handleDrawer}
+        anchor="top"
+        disableSwipeToOpen={true}
+      >
+        <CoreNavDrawer handleDrawer={handleDrawer} />
+      </SwipeableDrawer>
     </>
   );
 };

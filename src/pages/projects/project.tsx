@@ -20,6 +20,8 @@ export const ProjectCard = (props: IProjectCard) => {
           lg: "60%",
           xl: "50%",
         },
+        backgroundColor: mode === "light" ? "white" : "inherit",
+        borderRadius: { xs: 2, md: 3 },
       }}
     >
       <Stack
@@ -63,6 +65,7 @@ export const ProjectCard = (props: IProjectCard) => {
           sx={{
             width: 150,
             color: "white",
+            borderRadius: 5,
             backgroundColor: mode === "dark" ? "red" : "black",
             ":hover": {
               backgroundColor: mode === "dark" ? "#bb0000" : "#444444",

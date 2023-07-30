@@ -11,7 +11,7 @@ const EducationWrapper = (props: IEducation) => {
         {gradyear}
         {cgpa && ` - (${cgpa})`}
       </Typography>
-      <span>{project}</span>
+      <Typography variant="body2">{project}</Typography>
     </Stack>
   );
 };
@@ -19,6 +19,7 @@ const EducationWrapper = (props: IEducation) => {
 export const ResumeEducation = () => {
   return (
     <Stack spacing={2}>
+      <Typography variant="h5">Education</Typography>
       {educationList.map((edu: IEducation) => (
         <EducationWrapper key={edu.degree} {...edu} />
       ))}
