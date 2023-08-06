@@ -92,14 +92,14 @@ const ResumeSkillElement = (props: IResumeSkillElement) => {
                     >
                       {skill.years && ` ${skill.years} years`}
                     </Grid>
-                    <Grid
+                    {/* <Grid
                       item
                       display={{ xs: "none", md: "block" }}
                       md={2}
                       lg={1}
                     >
                       {skill.level && <Level level={skill.level} />}
-                    </Grid>
+                    </Grid> */}
                   </Grid>
                 </Grid>
               ))}
