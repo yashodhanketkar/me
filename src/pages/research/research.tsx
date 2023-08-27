@@ -1,8 +1,16 @@
-import { Box, Paper, Typography, Stack, useTheme } from "@mui/material";
-import { IResearchWork } from "@/common";
+import { IResearchWork, researchWorks } from "@/common";
+import { Box, Paper, Stack, Typography, useTheme } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 
-export const ResearchCard = (props: IResearchWork) => {
-  const { title, authors, journal, year, doi, abstract } = props;
+export const ResearchCard = ({
+  research,
+  feature = false,
+}: {
+  research: IResearchWork;
+  feature?: boolean;
+}) => {
+  const { title, authors, journal, year, doi, abstract } = research;
+  const index = researchWorks.findIndex((ele) => ele.doi === doi);
   const {
     palette: { mode },
   } = useTheme();
@@ -14,7 +22,12 @@ export const ResearchCard = (props: IResearchWork) => {
         borderRadius: 3,
       }}
     >
-      <Stack gap={1} padding={4}>
+      <Stack
+        component={RouterLink}
+        to={feature ? "" : `${index}`}
+        gap={1}
+        padding={4}
+      >
         <Typography
           sx={{
             fontFamily: "serif",
@@ -37,6 +50,7 @@ export const ResearchCard = (props: IResearchWork) => {
         <Typography
           component="a"
           sx={{
+            width: "fit-content",
             textDecoration: "underline",
             fontStyle: "oblique",
           }}
@@ -48,7 +62,11 @@ export const ResearchCard = (props: IResearchWork) => {
         </Typography>
         <Typography
           sx={{
-            textAlign: "justify",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            display: feature ? "inline" : "-webkit-box",
+            WebkitLineClamp: "2",
+            WebkitBoxOrient: "vertical",
           }}
         >
           {abstract}

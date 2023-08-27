@@ -1,30 +1,38 @@
-import { IProjectWork } from "@/common/data/project";
-import { Box, Button, Paper, Typography, Stack, useTheme } from "@mui/material";
+import { IProjectWork, projectWorks } from "@/common/data/project";
+import { Button, Paper, Stack, Typography, useTheme } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 
-interface IProjectCard {
+export const ProjectCard = ({
+  projectWork,
+  feature = false,
+}: {
   projectWork: IProjectWork;
-}
-
-export const ProjectCard = (props: IProjectCard) => {
-  const { projectWork } = props;
+  feature?: boolean;
+}) => {
   const {
     palette: { mode },
   } = useTheme();
 
+  const index = projectWorks.findIndex((ele) => ele.name === projectWork.name);
+
   return (
     <Paper
       sx={{
-        width: {
-          xs: "100%",
-          md: "75%",
-          lg: "60%",
-          xl: "50%",
-        },
+        width: feature
+          ? "100%"
+          : {
+              xs: "100%",
+              md: "75%",
+              lg: "60%",
+              xl: "50%",
+            },
         backgroundColor: mode === "light" ? "white" : "inherit",
         borderRadius: { xs: 2, md: 3 },
       }}
     >
       <Stack
+        component={RouterLink}
+        to={feature ? "" : `${index}`}
         sx={{
           padding: {
             xs: 2,

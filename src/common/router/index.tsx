@@ -1,4 +1,11 @@
-import { Home, Projects, Research, Resume } from "@/pages";
+import {
+  Home,
+  ProjectDetail,
+  Projects,
+  Research,
+  ResearchDetail,
+  Resume,
+} from "@/pages";
 import { Outlet, Route, Routes } from "react-router-dom";
 
 type route = {
@@ -16,8 +23,16 @@ const routes: route[] = [
     element: <Research />,
   },
   {
+    path: "/research/:id",
+    element: <ResearchDetail />,
+  },
+  {
     path: "/projects",
     element: <Projects />,
+  },
+  {
+    path: "/projects/:id",
+    element: <ProjectDetail />,
   },
   {
     path: "/resume",

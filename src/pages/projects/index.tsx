@@ -1,5 +1,6 @@
+import { IProjectWork, projectWorks } from "@/common/data/project";
 import { Stack } from "@mui/material";
-import { projectWorks, IProjectWork } from "@/common/data/project";
+import { useParams } from "react-router-dom";
 import { ProjectCard } from "./project";
 
 export const ProjectPage = () => {
@@ -9,5 +10,13 @@ export const ProjectPage = () => {
         <ProjectCard projectWork={projectWork} key={projectWork.url} />
       ))}
     </Stack>
+  );
+};
+
+export const ProjectDetailPage = () => {
+  const { id } = useParams();
+  const projectWork = projectWorks[parseInt(id!)];
+  return (
+    <ProjectCard projectWork={projectWork} key={projectWork.url} feature />
   );
 };

@@ -1,4 +1,10 @@
 export { HomePage as Home } from "./home";
-export { ResearchPage as Research } from "./research";
-export { ProjectPage as Projects } from "./projects";
+export {
+  ProjectDetailPage as ProjectDetail,
+  ProjectPage as Projects,
+} from "./projects";
+export {
+  ResearchPage as Research,
+  ResearchDetailPage as ResearchDetail,
+} from "./research";
 export { ResumePage as Resume } from "./resume";
