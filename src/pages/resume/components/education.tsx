@@ -1,27 +1,38 @@
+import { Education } from "@/config/type";
+import { useGetEducationsQuery } from "@/context/services/resumeService";
 import { Stack, Typography } from "@mui/material";
-import { educationList, IEducation } from "@/common/data/resume";
 
-const EducationWrapper = (props: IEducation) => {
-  const { university, degree, graduation: gradyear, cgpa, project } = props;
+const EducationWrapper = ({
+  name,
+  degree,
+  end,
+  grades,
+  heading,
+}: Education) => {
   return (
     <Stack>
       <Typography fontWeight={700}>{degree}</Typography>
-      <Typography>{university}</Typography>
+      <Typography>{name}</Typography>
       <Typography>
-        {gradyear}
-        {cgpa && ` - (${cgpa})`}
+        {end}
+        {grades && ` - (${grades})`}
       </Typography>
-      <Typography variant="body2">{project}</Typography>
+      <Typography variant="body2">{heading}</Typography>
     </Stack>
   );
 };
 
 export const ResumeEducation = () => {
+  const { data: educationList, isLoading, isError } = useGetEducationsQuery();
+
+  if (isLoading) return <Typography>Loading...</Typography>;
+  if (isError || !educationList) return <Typography>Error</Typography>;
+
   return (
     <Stack spacing={2}>
       <Typography variant="h5">Education</Typography>
-      {educationList.map((edu: IEducation) => (
-        <EducationWrapper key={edu.degree} {...edu} />
+      {educationList.map((edu) => (
+        <EducationWrapper key={edu._id} {...edu} />
       ))}
     </Stack>
   );

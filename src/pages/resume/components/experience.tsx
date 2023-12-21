@@ -1,38 +1,42 @@
-import { IExperience, experienceList } from "@/common/data/resume";
+import { Experience } from "@/config/type";
+import { useGetExperiencesQuery } from "@/context/services/resumeService";
 import { Stack, Typography } from "@mui/material";
 
-const ExperienceWrapper = (props: IExperience) => {
-  const {
-    position,
-    company,
-    type: title,
-    start,
-    end,
-    duration,
-    responsibilities,
-  } = props;
+const ExperienceWrapper = ({
+  position,
+  name,
+  type: title,
+  start,
+  end,
+  description,
+}: Experience) => {
   return (
     <Stack>
-      <Typography fontWeight={700}>
-        {position} ({title})
+      <Typography textTransform={"capitalize"} fontWeight={700}>
+        {position} ({title === "internship" && title})
       </Typography>
-      <Typography>{company}</Typography>
+      <Typography>{name}</Typography>
       <Typography>
-        {start} - {end} ({duration})
+        {start} - {end}
       </Typography>
       <Typography width={"75ch"} variant="body2">
-        {responsibilities}
+        {description}
       </Typography>
     </Stack>
   );
 };
 
 export const ResumeExperience = () => {
+  const { data: experienceList, isLoading, isError } = useGetExperiencesQuery();
+
+  if (isLoading) return <p>Loading...</p>;
+  if (isError || !experienceList) return <p>Error</p>;
+
   return (
     <Stack spacing={2}>
       <Typography variant="h5">Experience</Typography>
-      {experienceList.map((exp: IExperience) => (
-        <ExperienceWrapper key={exp.serial} {...exp} />
+      {experienceList.map((exp) => (
+        <ExperienceWrapper key={exp._id} {...exp} />
       ))}
     </Stack>
   );

@@ -1,11 +1,11 @@
-import { useRef } from "react";
 import { Button, Card, Container, Divider, useTheme } from "@mui/material";
+import { useRef } from "react";
 import {
-  ResumeTitle,
-  ResumeHeader,
   ResumeEducation,
-  ResumeSkills,
   ResumeExperience,
+  ResumeHeader,
+  ResumeSkills,
+  ResumeTitle,
 } from "./components";
 
 export const ResumePage = () => {
@@ -29,7 +29,7 @@ export const ResumePage = () => {
             xs: 2,
             md: 4,
           },
-          width: { xs: "85%", md: "70%", xl: "65%" },
+          width: { xs: "85%", md: "65%", xl: "50%" },
           borderRadius: 2,
           backgroundColor: mode === "dark" ? "inherit" : "white",
           display: "flex",

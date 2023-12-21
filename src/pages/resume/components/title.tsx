@@ -21,7 +21,7 @@ export const ResumeTitle = () => {
         Yashodhan Ketkar
       </Typography>
       <Typography fontFamily="Comfortaa" variant="subtitle1" textAlign="center">
-        Web developer and ML Researcher
+        Software developer and Researcher
       </Typography>
     </Stack>
   );
