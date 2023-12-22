@@ -32,3 +32,24 @@ body {
 ::-webkit-scrollbar-thumb {
   @apply bg-stone-800 hover:bg-stone-700;
 }
+
+.resume-card {
+  @apply w-[85%] md:w-[65%] xl:w-[50%];
+}
+
+@media print {
+  .resume-card {
+    position: fixed;
+    background-color: white;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    z-index: 999;
+  }
+
+  .resume-card > * {
+    color: black;
+  }
+}
