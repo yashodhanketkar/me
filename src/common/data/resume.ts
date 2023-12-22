@@ -41,11 +41,6 @@ export const socialList: ISocials[] = [
     username: "yashodhanketkar",
   },
   {
-    type: "twitter",
-    url: "https://twitter.com/yashodhanketkar",
-    username: "@yashodhanketkar",
-  },
-  {
     type: "orcid",
     url: "https://orcid.org/0000-0003-1441-3247",
     username: "0000-0003-1441-3247",

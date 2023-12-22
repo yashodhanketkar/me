@@ -1,3 +1,4 @@
+import MenuIcon from "@mui/icons-material/Menu";
 import {
   AppBar,
   Box,
@@ -7,9 +8,8 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import { ThemeSwitch } from "./themeSwitch";
 import { NavDrawer, Navbar } from "../navbar";
+import { ThemeSwitch } from "./themeSwitch";
 
 export const Header = (): React.ReactElement => {
   const {
@@ -23,6 +23,7 @@ export const Header = (): React.ReactElement => {
           backgroundColor: "transparent",
           color: mode === "light" ? "black" : "white",
           boxShadow: "none",
+          displayPrint: "none",
         }}
         position="static"
       >

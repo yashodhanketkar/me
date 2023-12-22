@@ -1,19 +1,16 @@
-import { useRef } from "react";
-import { Button, Card, Container, Divider, useTheme } from "@mui/material";
+import { Card, Container, Divider, useTheme } from "@mui/material";
 import {
-  ResumeTitle,
-  ResumeHeader,
   ResumeEducation,
-  ResumeSkills,
   ResumeExperience,
+  ResumeHeader,
+  ResumeSkills,
+  ResumeTitle,
 } from "./components";
 
 export const ResumePage = () => {
   const {
     palette: { mode },
   } = useTheme();
-
-  const pageRef = useRef();
 
   return (
     <Container
@@ -29,13 +26,13 @@ export const ResumePage = () => {
             xs: 2,
             md: 4,
           },
-          width: { xs: "85%", md: "70%", xl: "65%" },
-          borderRadius: 2,
           backgroundColor: mode === "dark" ? "inherit" : "white",
+          borderRadius: 2,
           display: "flex",
           flexDirection: "column",
           gap: 2,
         }}
+        className="resume-card"
       >
         <ResumeTitle />
         <Divider />

@@ -1,5 +1,5 @@
 import { Box, Link, PaletteMode, useTheme } from "@mui/material";
-import { AiOutlineTwitter, AiFillGithub, AiOutlineMail } from "react-icons/ai";
+import { AiFillGithub, AiOutlineMail, AiOutlineTwitter } from "react-icons/ai";
 import { FaOrcid } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
 
@@ -10,11 +10,6 @@ const socials: Social[] = [
     link: "mailto:kykyashodhan@gmail.com",
     Icon: AiOutlineMail,
     app: true,
-  },
-  {
-    link: "https://twitter.com/yashodhanketkar",
-    Icon: AiOutlineTwitter,
-    app: false,
   },
   {
     link: "https://github.com/yashodhanketkar",

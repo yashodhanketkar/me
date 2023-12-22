@@ -1,5 +1,5 @@
-import { Footer, Header } from "./components";
 import { Box, Container, CssBaseline, Stack } from "@mui/material";
+import { Footer, Header } from "./components";
 import { ThemeWrapper } from "./theme";
 
 const MainUIWrapper = ({
@@ -17,11 +17,31 @@ const MainUIWrapper = ({
     >
       <ThemeWrapper>
         <CssBaseline />
-        <Stack minHeight={"100vh"} spacing={2} justifyContent="space-between">
+        <Box
+          sx={{
+            minHeight: "100vh",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+          }}
+        >
           <Header />
-          <Box sx={{ marginBottom: "auto" }}>{children}</Box>
+          <Box
+            sx={{
+              marginBottom: "auto",
+              position: "relative",
+              paddingY: {
+                xs: 2,
+                sm: 4,
+                md: 6,
+                lg: 8,
+              },
+            }}
+          >
+            {children}
+          </Box>
           <Footer />
-        </Stack>
+        </Box>
       </ThemeWrapper>
     </Container>
   );
