@@ -1,12 +1,10 @@
-import {
-  Home,
-  ProjectDetail,
-  Projects,
-  Research,
-  ResearchDetail,
-  Resume,
-} from "@/pages";
-import { Outlet, Route, Routes } from "react-router-dom";
+import { ResearchPage } from '@/pages/research/list';
+import { ResearchDetailPage } from '@/pages/research/details';
+import { Outlet, Route, Routes } from 'react-router-dom';
+import { HomePage } from '@/pages/home';
+import { ProjectDetailPage } from '@/pages/projects/details';
+import { ProjectPage } from '@/pages/projects/list/index';
+import { ResumePage } from '@/pages/resume';
 
 type route = {
   path: string;
@@ -14,30 +12,12 @@ type route = {
 };
 
 const routes: route[] = [
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/research",
-    element: <Research />,
-  },
-  {
-    path: "/research/:id",
-    element: <ResearchDetail />,
-  },
-  {
-    path: "/projects",
-    element: <Projects />,
-  },
-  {
-    path: "/projects/:id",
-    element: <ProjectDetail />,
-  },
-  {
-    path: "/resume",
-    element: <Resume />,
-  },
+  { path: '/', element: <HomePage /> },
+  { path: '/research', element: <ResearchPage /> },
+  { path: '/research/:id', element: <ResearchDetailPage /> },
+  { path: '/projects', element: <ProjectPage /> },
+  { path: '/projects/:id', element: <ProjectDetailPage /> },
+  { path: '/resume', element: <ResumePage /> },
 ];
 
 const MainRouter = () => {

@@ -1,12 +1,6 @@
-import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
-import { IconType } from "react-icons/lib";
-import {
-  Button,
-  PaletteMode,
-  Stack,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { AiFillLinkedin, AiFillGithub } from 'react-icons/ai';
+import type { IconType } from 'react-icons/lib';
+import { Button, Stack, Typography, useTheme, type PaletteMode } from '@mui/material';
 
 type ProfileLinkType = {
   link: string;
@@ -17,18 +11,18 @@ type ProfileLinkType = {
 };
 const profileLinks: ProfileLinkType[] = [
   {
-    link: "https://github.com/yashodhanketkar",
+    link: 'https://github.com/yashodhanketkar',
     Icon: AiFillGithub,
-    name: "GitHub",
-    color: "black",
-    hovercolor: "#444444",
+    name: 'GitHub',
+    color: 'black',
+    hovercolor: '#444444',
   },
   {
-    link: "https://www.linkedin.com/in/yashodhanketkar/",
+    link: 'https://www.linkedin.com/in/yashodhanketkar/',
     Icon: AiFillLinkedin,
-    name: "Linkedin",
-    color: "blue",
-    hovercolor: "#0000bb",
+    name: 'Linkedin',
+    color: 'blue',
+    hovercolor: '#0000bb',
   },
 ];
 
@@ -53,12 +47,12 @@ const ProfileButton = ({
       variant="contained"
       startIcon={<Icon />}
       sx={{
-        width: "50%",
-        textTransform: "none",
-        backgroundColor: mode === "light" ? color : "white",
-        ":hover": {
-          backgroundColor: mode === "dark" ? "red" : hovercolor,
-          color: "white",
+        width: '50%',
+        textTransform: 'none',
+        backgroundColor: mode === 'light' ? color : 'white',
+        ':hover': {
+          backgroundColor: mode === 'dark' ? 'red' : hovercolor,
+          color: 'white',
         },
       }}
     >
@@ -77,7 +71,7 @@ export const ProfileInfo = () => {
       <Typography variant="h5">Yashodhan Ketkar</Typography>
       <Typography
         sx={{
-          fontFamily: "Comfortaa",
+          fontFamily: 'Comfortaa',
         }}
         variant="body1"
       >
@@ -87,7 +81,7 @@ export const ProfileInfo = () => {
         justifyContent="center"
         alignItems="center"
         gap={2}
-        direction={{ xs: "column", md: "row" }}
+        direction={{ xs: 'column', md: 'row' }}
       >
         {profileLinks.map((profileLink) => (
           <ProfileButton key={profileLink.link} mode={mode} {...profileLink} />

@@ -4,20 +4,8 @@ export type nav = {
 };
 
 export const navs: nav[] = [
-  {
-    link: "/",
-    name: "Home",
-  },
-  {
-    link: "/research",
-    name: "Research",
-  },
-  {
-    link: "/projects",
-    name: "Projects",
-  },
-  {
-    link: "/resume",
-    name: "Resume",
-  },
+  { link: '/', name: 'Home' },
+  { link: '/research', name: 'Research' },
+  { link: '/projects', name: 'Projects' },
+  { link: '/resume', name: 'Resume' },
 ];

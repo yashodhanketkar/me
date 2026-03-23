@@ -1,11 +1,11 @@
-import { Card, Container, Divider, useTheme } from "@mui/material";
+import { Card, Container, Divider, useTheme } from '@mui/material';
 import {
   ResumeEducation,
   ResumeExperience,
   ResumeHeader,
   ResumeSkills,
   ResumeTitle,
-} from "./components";
+} from './components';
 
 export const ResumePage = () => {
   const {
@@ -15,8 +15,8 @@ export const ResumePage = () => {
   return (
     <Container
       sx={{
-        display: "flex",
-        justifyContent: "center",
+        display: 'flex',
+        justifyContent: 'center',
       }}
       disableGutters
     >
@@ -26,10 +26,10 @@ export const ResumePage = () => {
             xs: 2,
             md: 4,
           },
-          backgroundColor: mode === "dark" ? "inherit" : "white",
+          backgroundColor: mode === 'dark' ? 'inherit' : 'white',
           borderRadius: 2,
-          display: "flex",
-          flexDirection: "column",
+          display: 'flex',
+          flexDirection: 'column',
           gap: 2,
         }}
         className="resume-card"

@@ -1,55 +1,47 @@
-import ProfilePicture from "@/assets/photo.jpg";
-import { Social } from "@/config/type";
-import { Avatar, Grid, Typography, useTheme } from "@mui/material";
-import { FaGithub, FaGlobe, FaLink, FaLinkedin, FaOrcid } from "react-icons/fa";
+import ProfilePicture from '@/assets/photo.jpg';
+import type { Social } from '@/config/type';
+import { Avatar, Grid, Typography, useTheme } from '@mui/material';
+import { FaGithub, FaGlobe, FaLink, FaLinkedin, FaOrcid } from 'react-icons/fa';
 
-const socialList: Pick<Social, "name" | "type" | "url">[] = [
+const socialList: Pick<Social, 'name' | 'type' | 'url'>[] = [
   {
-    name: "yashodhanketkar",
-    type: "github",
-    url: "https://github.com/yashodhanketkar",
+    name: 'yashodhanketkar',
+    type: 'github',
+    url: 'https://github.com/yashodhanketkar',
   },
   {
-    name: "yashodhanketkar",
-    type: "linkedin",
-    url: "https://www.linkedin.com/in/yashodhanketkar/",
+    name: 'yashodhanketkar',
+    type: 'linkedin',
+    url: 'https://www.linkedin.com/in/yashodhanketkar/',
   },
   {
-    name: "0000-0003-1441-3247",
-    type: "orcid",
-    url: "https://orcid.org/0000-0003-1441-3247",
+    name: '0000-0003-1441-3247',
+    type: 'orcid',
+    url: 'https://orcid.org/0000-0003-1441-3247',
   },
   {
-    name: "yashodhanketkar.com",
-    type: "home",
-    url: "https://yashodhan-ketkar.web.app",
+    name: 'yashodhanketkar.com',
+    type: 'home',
+    url: 'https://yashodhan-ketkar.web.app',
   },
 ];
 
 const socialIcon = (socialType: string) => {
   switch (socialType) {
-    case "linkedin":
-      return (
-        <FaLinkedin size={24} className="text-[#0077B5] dark:text-inherit" />
-      );
-    case "github":
-      return (
-        <FaGithub size={24} className="text-[#171515] dark:text-inherit" />
-      );
-    case "orcid":
+    case 'linkedin':
+      return <FaLinkedin size={24} className="text-[#0077B5] dark:text-inherit" />;
+    case 'github':
+      return <FaGithub size={24} className="text-[#171515] dark:text-inherit" />;
+    case 'orcid':
       return <FaOrcid size={24} className="text-lime-400 dark:text-inherit" />;
-    case "home":
+    case 'home':
       return <FaGlobe size={24} />;
     default:
       return <FaLink size={24} />;
   }
 };
 
-const SocialLinkFactory = ({
-  name,
-  type,
-  url,
-}: Pick<Social, "name" | "type" | "url">) => {
+const SocialLinkFactory = ({ name, type, url }: Pick<Social, 'name' | 'type' | 'url'>) => {
   const {
     palette: { mode },
   } = useTheme();
@@ -62,8 +54,8 @@ const SocialLinkFactory = ({
       display="inline-flex"
       gap={1}
       sx={{
-        ":hover": {
-          color: mode === "dark" ? "red" : "inherit",
+        ':hover': {
+          color: mode === 'dark' ? 'red' : 'inherit',
         },
       }}
     >
@@ -77,24 +69,22 @@ export const ResumeHeader = () => {
   return (
     <Grid spacing={2} container>
       <Grid
-        item
-        xs={12}
-        md={4}
+        size={{ xs: 12, md: 4 }}
         sx={{
-          display: "flex",
-          justifyContent: "center",
+          display: 'flex',
+          justifyContent: 'center',
           order: { xs: 1, md: 2 },
         }}
       >
         <Avatar
           sx={{
             height: {
-              xs: "7rem",
-              md: "10rem",
+              xs: '7rem',
+              md: '10rem',
             },
             width: {
-              xs: "7rem",
-              md: "10rem",
+              xs: '7rem',
+              md: '10rem',
             },
           }}
           src={ProfilePicture}
@@ -104,14 +94,12 @@ export const ResumeHeader = () => {
         </Avatar>
       </Grid>
       <Grid
-        item
-        xs={12}
-        md={8}
+        size={{ xs: 12, md: 8 }}
         sx={{
-          display: "flex",
-          flexDirection: "column",
+          display: 'flex',
+          flexDirection: 'column',
           gap: 1,
-          justifyContent: "center",
+          justifyContent: 'center',
           order: { xs: 2, md: 1 },
         }}
       >

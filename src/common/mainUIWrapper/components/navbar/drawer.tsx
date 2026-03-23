@@ -1,17 +1,10 @@
-import {
-  Drawer,
-  IconButton,
-  Link,
-  PaletteMode,
-  Stack,
-  SwipeableDrawer,
-  useTheme,
-} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
-import { useState } from "react";
-import { navs, nav } from "./navs";
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import { IconButton, Link, Stack, SwipeableDrawer, useTheme } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import { useState } from 'react';
+import { navs, type nav } from './navs';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
+import type { PaletteMode } from '@mui/material/styles';
 
 const NavDrawerFactory = (props: {
   nav: nav;
@@ -33,14 +26,14 @@ const NavDrawerFactory = (props: {
       sx={{
         fontWeight: pathname === link ? 700 : 400,
         fontSize: 24,
-        ":hover": {
+        ':hover': {
           fontWeight: 700,
-          ":first-letter": {
-            color: mode === "dark" ? "red" : "black",
+          ':first-letter': {
+            color: mode === 'dark' ? 'red' : 'black',
           },
         },
-        color: pathname === link && mode === "dark" ? "red" : "inherit",
-        textDecoration: "none",
+        color: pathname === link && mode === 'dark' ? 'red' : 'inherit',
+        textDecoration: 'none',
       }}
     >
       {name}
@@ -55,17 +48,11 @@ const CoreNavDrawer = ({ handleDrawer }: { handleDrawer: () => void }) => {
   } = useTheme();
 
   return (
-    <Stack
-      sx={{
-        padding: 4,
-        alignItems: "center",
-        gap: 2,
-      }}
-    >
+    <Stack sx={{ padding: 4, alignItems: 'center', gap: 2 }}>
       <IconButton
         onClick={handleDrawer}
         sx={{
-          position: "absolute",
+          position: 'absolute',
           top: 10,
           right: 10,
         }}
@@ -87,19 +74,11 @@ const CoreNavDrawer = ({ handleDrawer }: { handleDrawer: () => void }) => {
 
 export const NavDrawer = () => {
   const [open, setOpen] = useState(false);
-  let handleDrawer = () => setOpen((prev) => !prev);
+  const handleDrawer = () => setOpen((prev) => !prev);
 
   return (
     <>
-      <IconButton
-        onClick={handleDrawer}
-        sx={{
-          display: {
-            xs: "flex",
-            sm: "none",
-          },
-        }}
-      >
+      <IconButton onClick={handleDrawer} sx={{ display: { xs: 'flex', sm: 'none' } }}>
         <MenuIcon />
       </IconButton>
 

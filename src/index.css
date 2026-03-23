@@ -1,9 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Flamenco&display=swap");
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 html {
   font-size: 16px;
@@ -49,7 +47,7 @@ body {
     z-index: 999;
   }
 
-  .resume-card > * {
+  .resume-card>* {
     color: black;
   }
 }

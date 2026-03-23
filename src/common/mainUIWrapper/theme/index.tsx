@@ -1,26 +1,22 @@
-import { createTheme, ThemeProvider } from "@mui/material";
-import { useEffect, useMemo, useState } from "react";
-import { ThemeModeContext } from "@/common/context/theme";
+import { createTheme, ThemeProvider } from '@mui/material';
+import { useEffect, useMemo, useState } from 'react';
+import { ThemeModeContext } from '@/common/context/theme';
 
-const ThemeWrapper = ({
-  children,
-}: {
-  children: React.ReactNode;
-}): React.ReactElement => {
-  const [mode, setMode] = useState<"dark" | "light">("dark");
+const ThemeWrapper = ({ children }: { children: React.ReactNode }): React.ReactElement => {
+  const [mode, setMode] = useState<'dark' | 'light'>('dark');
 
   useEffect(() => {
-    let localTheme = localStorage.getItem("theme");
-    if (localTheme === "dark" || localTheme === "light") setMode(localTheme);
+    const localTheme = localStorage.getItem('theme');
+    if (localTheme === 'dark' || localTheme === 'light') setMode(localTheme);
   }, []);
 
   const themeMode = useMemo(
     () => ({
       toggleThemeMode: () => {
-        setMode((prev) => (prev === "dark" ? "light" : "dark"));
+        setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
       },
     }),
-    []
+    [],
   );
 
   const theme = useMemo(
@@ -29,12 +25,12 @@ const ThemeWrapper = ({
         palette: {
           mode,
           background: {
-            default: mode === "dark" ? "#222222" : "#eeeeee",
-            paper: mode === "dark" ? "#222222" : "#dddddd",
+            default: mode === 'dark' ? '#222222' : '#eeeeee',
+            paper: mode === 'dark' ? '#222222' : '#dddddd',
           },
         },
       }),
-    [mode]
+    [mode],
   );
 
   return (
