@@ -3,6 +3,10 @@ import { Stack, Typography } from '@mui/material';
 import { useMemo } from 'react';
 
 type SkillMap = Record<string, string[]>;
+type SkillItem = {
+  category: keyof SkillMap;
+  name: string;
+};
 
 export const ResumeSkills = () => {
   const { data, isError, isLoading } = useGetSkillsQuery();
@@ -10,8 +14,11 @@ export const ResumeSkills = () => {
   const skillGroups = useMemo(() => {
     if (!data) return [];
 
-    const groups = data.reduce((acc, { category, name }) => {
-      (acc[category] = acc[category] || []).push(name);
+    const groups = data.reduce((acc, { category, name }: SkillItem) => {
+      if (!acc[category]) {
+        acc[category] = [];
+      }
+      acc[category].push(name);
       return acc;
     }, {} as SkillMap);
 

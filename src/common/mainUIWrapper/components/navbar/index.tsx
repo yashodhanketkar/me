@@ -16,24 +16,22 @@ const NavFactory = (props: {
   } = props;
 
   return (
-    <>
-      <Link
-        sx={{
-          ':hover': {
-            ':first-letter': {
-              fontWeight: 700,
-              color: mode === 'dark' ? 'red' : 'black',
-            },
+    <Link
+      sx={{
+        ':hover': {
+          ':first-letter': {
+            fontWeight: 700,
+            color: mode === 'dark' ? 'red' : 'black',
           },
-          color: pathname === link && mode === 'dark' ? 'red' : 'inherit',
-          textDecoration: 'none',
-        }}
-        component={RouterLink}
-        to={link}
-      >
-        {name}
-      </Link>
-    </>
+        },
+        color: pathname === link && mode === 'dark' ? 'red' : 'inherit',
+        textDecoration: 'none',
+      }}
+      component={RouterLink}
+      to={link}
+    >
+      {name}
+    </Link>
   );
 };
 

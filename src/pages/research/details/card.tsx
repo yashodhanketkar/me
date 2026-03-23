@@ -17,8 +17,8 @@ export const ResearchDetails = ({ research }: { research: Research }) => {
         {research.name}
       </Typography>
       <Box display="inline-flex" gap={1}>
-        {research.authors.map((author: string, i: number) => (
-          <Typography variant="subtitle1" key={i}>
+        {research.authors.map((author: string) => (
+          <Typography variant="subtitle1" key={author}>
             {author}.
           </Typography>
         ))}

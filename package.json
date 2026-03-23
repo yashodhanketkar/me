@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "preserve": "tsc && vite build",
     "serve": "vite preview",
-    "lint": "eslint src --ext .ts,.tsx"
+    "lint": "eslint src"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

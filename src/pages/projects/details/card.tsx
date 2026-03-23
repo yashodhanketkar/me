@@ -40,7 +40,7 @@ export const ProjectDetails = ({ projectWork }: { projectWork: Project }) => {
           <LinkRenderer mode={mode} link={link} title={`[${i + 1}] ${link}`} />
         </Box>
       )),
-    [projectWork.links],
+    [projectWork.links, mode],
   );
 
   return (

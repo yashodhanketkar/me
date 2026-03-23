@@ -3,6 +3,7 @@ import { ProjectCard } from './card';
 import { ProjectSkeleton } from './skeleton';
 import type { Project } from '@/config/type';
 import { useGetProjectsQuery } from '@/context/services/projectService';
+import { ErrorMessage } from '@/common/error';
 
 export const ProjectPage = () => {
   const { data, isLoading, isError } = useGetProjectsQuery(undefined, {
@@ -14,7 +15,7 @@ export const ProjectPage = () => {
   });
 
   if (isLoading) return <ProjectSkeleton />;
-  if (isError || !data) return <div>Error</div>;
+  if (isError || !data) return <ErrorMessage />;
 
   return (
     <Stack padding={{ xs: 0, sm: 4 }} width="100%" alignItems="center" spacing={{ xs: 2, md: 4 }}>

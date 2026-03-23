@@ -3,6 +3,7 @@ import { Stack } from '@mui/material';
 import { useGetResearchsQuery } from '@/context/services/researchService';
 import { ResearchCard } from './card';
 import { ResearchSkeleton } from './skeleton';
+import { ErrorMessage } from '@/common/error';
 
 export const ResearchPage = () => {
   const { data, isLoading, isError } = useGetResearchsQuery(undefined, {
@@ -14,7 +15,7 @@ export const ResearchPage = () => {
   });
 
   if (isLoading) return <ResearchSkeleton />;
-  if (isError || !data) return <div>Something went wrong</div>;
+  if (isError || !data) return <ErrorMessage />;
 
   return <ResearchList data={data} />;
 };

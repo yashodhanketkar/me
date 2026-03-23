@@ -10,7 +10,7 @@ export const researchAPI = createApi({
       query: () => '/publication',
     }),
     getResearch: builder.query<Research, string>({
-      query: (id) => '/publication/' + id,
+      query: (id) => `/publication/${id}`,
     }),
   }),
 });

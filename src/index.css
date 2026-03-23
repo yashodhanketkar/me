@@ -7,33 +7,33 @@ html {
   font-size: 16px;
 }
 
-* {
-  @apply p-0 m-0 box-border relative;
-}
+/* * { */
+/*   @apply p-0 m-0 box-border relative; */
+/* } */
 
-body {
-  @apply overflow-x-hidden;
-}
+/* body { */
+/*   @apply overflow-x-hidden; */
+/* } */
 
-::selection {
-  @apply bg-[#ff0000] text-white;
-}
+/* ::selection { */
+/*   @apply bg-[#ff0000] text-white; */
+/* } */
 
-::-webkit-scrollbar {
-  @apply w-2;
-}
+/* ::-webkit-scrollbar { */
+/*   @apply w-2; */
+/* } */
 
-::-webkit-scrollbar-track {
-  @apply bg-stone-950;
-}
+/* ::-webkit-scrollbar-track { */
+/*   @apply bg-stone-950; */
+/* } */
 
-::-webkit-scrollbar-thumb {
-  @apply bg-stone-800 hover:bg-stone-700;
-}
+/* ::-webkit-scrollbar-thumb { */
+/*   @apply bg-stone-800 hover:bg-stone-700; */
+/* } */
 
-.resume-card {
-  @apply w-[85%] md:w-[65%] xl:w-[50%];
-}
+/* .resume-card { */
+/*   @apply w-[85%] md:w-[65%] xl:w-[50%]; */
+/* } */
 
 @media print {
   .resume-card {
