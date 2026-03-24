@@ -1,8 +1,11 @@
-import type { Research } from '@/config/type';
 import { Box, Stack, Typography } from '@mui/material';
-import { parseYear } from './helper';
+import { useMemo } from 'react';
+
+import type { Research } from '@/config/type';
 
 export const ResearchDetails = ({ research }: { research: Research }) => {
+  const year = useMemo(() => parseYear(research.date), [research.date]);
+
   return (
     <Stack gap={1} paddingX={{ xs: 2, md: 4 }} paddingY={2} alignItems="center">
       <Typography
@@ -24,7 +27,7 @@ export const ResearchDetails = ({ research }: { research: Research }) => {
         ))}
       </Box>
       <Typography variant="subtitle2">
-        {research.journal}, {parseYear(research.date)}
+        {research.journal}, {year}
       </Typography>
       <Typography
         sx={{
@@ -51,4 +54,12 @@ export const ResearchDetails = ({ research }: { research: Research }) => {
       </Typography>
     </Stack>
   );
+};
+
+const parseYear = (date: string) => {
+  const res = new Date(date).getFullYear();
+  if (!Number.isNaN(res)) {
+    return res;
+  }
+  return date.split(',')[1].trim();
 };

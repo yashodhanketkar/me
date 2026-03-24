@@ -1,6 +1,7 @@
-import type { Project } from '@/config/type';
 import { Box, Stack, Typography, useTheme } from '@mui/material';
 import { memo, useMemo } from 'react';
+
+import type { Project } from '@/config/type';
 
 const LinkRenderer = memo(
   ({ mode, link, title }: { mode: string; link: string; title: string }) => {
@@ -19,6 +20,8 @@ const LinkRenderer = memo(
     );
   },
 );
+
+LinkRenderer.displayName = 'LinkRenderer';
 
 export const ProjectDetails = ({ projectWork }: { projectWork: Project }) => {
   const {

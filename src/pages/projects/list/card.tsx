@@ -1,12 +1,22 @@
-import type { Project } from '@/config/type';
 import { IconButton, Paper, Stack, Typography, useTheme } from '@mui/material';
+import { useMemo } from 'react';
 import { FaGithub as GitHubIcon } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
+
+import type { Project } from '@/config/type';
 
 export const ProjectCard = ({ projectWork }: { projectWork: Project }) => {
   const {
     palette: { mode },
   } = useTheme();
+
+  const start = useMemo(() => {
+    return new Date(projectWork.start)?.getFullYear() || 'Unknown';
+  }, [projectWork.start]);
+
+  const end = useMemo(() => {
+    return new Date(projectWork.end)?.getFullYear() || 'Ongoing';
+  }, [projectWork.end]);
 
   return (
     <Paper
@@ -36,11 +46,7 @@ export const ProjectCard = ({ projectWork }: { projectWork: Project }) => {
         >
           {projectWork.name}
         </Typography>
-        <Typography variant="subtitle1">
-          {`(${new Date(projectWork.start)?.getFullYear() || 'Unknown'} - ${
-            new Date(projectWork.end)?.getFullYear() || 'Present'
-          })`}
-        </Typography>
+        <Typography variant="subtitle1">{`(${start} - ${end})`}</Typography>
         <Typography
           variant="body1"
           sx={{

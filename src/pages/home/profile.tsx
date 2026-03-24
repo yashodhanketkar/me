@@ -1,6 +1,6 @@
-import { AiFillLinkedin, AiFillGithub } from 'react-icons/ai';
+import { Button, type PaletteMode, Stack, Typography, useTheme } from '@mui/material';
+import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import type { IconType } from 'react-icons/lib';
-import { Button, Stack, Typography, useTheme, type PaletteMode } from '@mui/material';
 
 type ProfileLinkType = {
   link: string;
@@ -68,14 +68,16 @@ export const ProfileInfo = () => {
 
   return (
     <Stack gap={2}>
-      <Typography variant="h5">Yashodhan Ketkar</Typography>
+      <Typography variant="h5" sx={{ textAlign: { xs: 'center', md: 'left' } }}>
+        Yashodhan Ketkar
+      </Typography>
       <Typography
         sx={{
           fontFamily: 'Comfortaa',
         }}
         variant="body1"
       >
-        Hello, I'm software developer and researcher.
+        {"Hello, I'm software developer and researcher."}
       </Typography>
       <Stack
         justifyContent="center"

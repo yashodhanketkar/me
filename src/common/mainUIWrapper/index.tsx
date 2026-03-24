@@ -1,5 +1,7 @@
 import { Box, Container, CssBaseline } from '@mui/material';
-import { Footer, Header } from './components';
+
+import { Footer } from './components/footer';
+import { Header } from './components/header';
 import { ThemeWrapper } from './theme';
 
 const MainUIWrapper = ({ children }: { children: React.ReactNode }): React.ReactElement => {

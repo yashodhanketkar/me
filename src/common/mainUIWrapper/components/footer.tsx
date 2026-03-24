@@ -1,11 +1,10 @@
-import { Box, Link, useTheme } from '@mui/material';
+import { Box, Grid, Link, Paper, Typography, useTheme } from '@mui/material';
 import type { PaletteMode } from '@mui/material/styles';
 import { AiFillGithub, AiOutlineMail } from 'react-icons/ai';
 import { FaOrcid } from 'react-icons/fa';
 import type { IconType } from 'react-icons/lib';
 
 type Social = { link: string; Icon: IconType; app: boolean };
-
 const socials: Social[] = [
   {
     link: 'mailto:kykyashodhan@gmail.com',
@@ -23,6 +22,21 @@ const socials: Social[] = [
     app: false,
   },
 ];
+
+export const Footer = (): React.ReactElement => {
+  return (
+    <Paper sx={{ displayPrint: 'none' }}>
+      <Grid spacing={1} padding={1} container>
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <FooterSocials />
+        </Grid>
+        <Grid size={{ xs: 12 }}>
+          <FooterInfo />
+        </Grid>
+      </Grid>
+    </Paper>
+  );
+};
 
 const SocialFactory = ({
   social,
@@ -58,6 +72,16 @@ export const FooterSocials = (): React.ReactElement => {
       {socials.map((social) => (
         <SocialFactory key={social.link} social={social} mode={mode} />
       ))}
+    </Box>
+  );
+};
+
+const currentYear = new Date().getFullYear();
+
+export const FooterInfo = (): React.ReactElement => {
+  return (
+    <Box sx={{ width: '100%', textAlign: 'center' }}>
+      <Typography variant="caption">{currentYear} © Yashodhan Ketkar</Typography>
     </Box>
   );
 };

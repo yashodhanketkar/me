@@ -1,11 +1,12 @@
 import { Stack } from '@mui/material';
+
+import { ErrorMessage } from '@/common/error';
+import { useGetProjectsQuery } from '@/context/services/projectService';
+
 import { ProjectCard } from './card';
 import { ProjectSkeleton } from './skeleton';
-import type { Project } from '@/config/type';
-import { useGetProjectsQuery } from '@/context/services/projectService';
-import { ErrorMessage } from '@/common/error';
 
-export const ProjectPage = () => {
+const ProjectPage = () => {
   const { data, isLoading, isError } = useGetProjectsQuery(undefined, {
     selectFromResult: ({ data, isLoading, isError }) => ({
       data,
@@ -15,13 +16,16 @@ export const ProjectPage = () => {
   });
 
   if (isLoading) return <ProjectSkeleton />;
-  if (isError || !data) return <ErrorMessage />;
+  if (isError) return <ErrorMessage />;
+  if (!data) return <ErrorMessage custom="No projects found." />;
 
   return (
-    <Stack padding={{ xs: 0, sm: 4 }} width="100%" alignItems="center" spacing={{ xs: 2, md: 4 }}>
-      {data.map((projectWork: Project) => (
-        <ProjectCard projectWork={projectWork} key={projectWork.id} />
+    <Stack padding={{ xs: 2, sm: 4 }} width="100%" alignItems="center" spacing={{ xs: 2, md: 4 }}>
+      {data.map((projects) => (
+        <ProjectCard projectWork={projects} key={projects.id} />
       ))}
     </Stack>
   );
 };
+
+export default ProjectPage;

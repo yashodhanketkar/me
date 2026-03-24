@@ -1,6 +1,7 @@
+import { Stack, Typography } from '@mui/material';
+
 import type { Experience } from '@/config/type';
 import { useGetExperiencesQuery } from '@/context/services/resumeService';
-import { Stack, Typography } from '@mui/material';
 
 const ExperienceWrapper = ({ company, description, end, name, start }: Experience) => {
   return (

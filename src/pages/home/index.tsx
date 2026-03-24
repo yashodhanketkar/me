@@ -1,23 +1,22 @@
 import { Avatar, Card, Container, Grid } from '@mui/material';
+
 import ProfilePhoto from '@/assets/photo.jpg';
+
 import { ProfileInfo } from './profile';
 
-export const HomePage = () => {
+const HomePage = () => {
   return (
     <Container
       sx={{
         display: 'flex',
         justifyContent: 'center',
-        marginTop: { xs: 2, sm: 6 },
+        marginTop: 4,
       }}
     >
       <Card
         sx={{
-          width: { xs: '75%', md: '50%' },
-          borderRadius: {
-            xs: 2,
-            md: 4,
-          },
+          width: { xs: '90%', md: '50%' },
+          borderRadius: { xs: 2, md: 4 },
         }}
         variant="elevation"
       >
@@ -48,3 +47,5 @@ export const HomePage = () => {
     </Container>
   );
 };
+
+export default HomePage;

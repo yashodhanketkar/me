@@ -1,7 +1,6 @@
 import { Typography } from '@mui/material';
 
-export const ErrorMessage = ({ custom }: { custom?: string }) => {
-  const message = custom ? custom : 'Something went wrong, please try again later!';
+export const LoadingMessage = () => {
   return (
     <Typography
       sx={{
@@ -15,7 +14,7 @@ export const ErrorMessage = ({ custom }: { custom?: string }) => {
         zIndex: -10,
       }}
     >
-      {message}
+      Content is loading, please wait!
     </Typography>
   );
 };

@@ -1,14 +1,11 @@
-import { useLocation } from 'react-router-dom';
-import { Box, useTheme, Link } from '@mui/material';
-import { navs, type nav } from './navs';
-import { Link as RouterLink } from 'react-router-dom';
+import { Box, Link, useTheme } from '@mui/material';
 import type { PaletteMode } from '@mui/material/styles';
+import { useLocation } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 
-const NavFactory = (props: {
-  nav: nav;
-  pathname: string;
-  mode: PaletteMode;
-}): React.ReactElement => {
+import { type nav, navs } from './navs';
+
+const NavFactory = (props: { nav: nav; pathname: string; mode: PaletteMode }) => {
   const {
     nav: { link, name },
     pathname,
@@ -61,5 +58,3 @@ export const Navbar = (): React.ReactElement => {
     </Box>
   );
 };
-
-export { NavDrawer } from './drawer';

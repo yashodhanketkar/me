@@ -1,4 +1,5 @@
 import { Provider } from 'react-redux';
+
 import MainUIWrapper from './common';
 import MainRouter from './common/router';
 import { store } from './context/store';

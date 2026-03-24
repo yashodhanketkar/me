@@ -1,21 +1,24 @@
 import { createTheme, ThemeProvider } from '@mui/material';
 import { useEffect, useMemo, useState } from 'react';
-import { ThemeModeContext } from '@/common/context/theme';
 
-const ThemeWrapper = ({ children }: { children: React.ReactNode }): React.ReactElement => {
-  const [mode, setMode] = useState<'dark' | 'light'>('dark');
+import { ThemeModeContext } from '@/context/theme';
+
+export const ThemeWrapper = ({ children }: { children: React.ReactNode }): React.ReactElement => {
+  const [mode, setMode] = useState<'dark' | 'light'>(() => {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'dark' || storedTheme === 'light') {
+      return storedTheme;
+    } else {
+      return 'dark';
+    }
+  });
 
   useEffect(() => {
-    const localTheme = localStorage.getItem('theme');
-    if (localTheme === 'dark' || localTheme === 'light') setMode(localTheme);
-  }, []);
+    localStorage.setItem('theme', mode);
+  }, [mode]);
 
   const themeMode = useMemo(
-    () => ({
-      toggleThemeMode: () => {
-        setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
-      },
-    }),
+    () => ({ toggleThemeMode: () => setMode((prev) => (prev === 'dark' ? 'light' : 'dark')) }),
     [],
   );
 
@@ -39,5 +42,3 @@ const ThemeWrapper = ({ children }: { children: React.ReactNode }): React.ReactE
     </ThemeModeContext.Provider>
   );
 };
-
-export { ThemeWrapper };

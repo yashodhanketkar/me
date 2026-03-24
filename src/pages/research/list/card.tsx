@@ -1,8 +1,10 @@
-import type { Research } from '@/config/type';
-import { cardMetaStyle } from '../style';
 import { Box, Paper, Stack, Typography, useTheme } from '@mui/material';
 import { memo, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+
+import type { Research } from '@/config/type';
+
+import { cardMetaStyle, paperMetaStyle } from '../style';
 
 export const ResearchCard = memo(({ research }: { research: Research }) => {
   const {
@@ -19,16 +21,11 @@ export const ResearchCard = memo(({ research }: { research: Research }) => {
     [research.authors],
   );
 
+  const paperStyle = useMemo(() => paperMetaStyle(mode), [mode]);
   const formattedDate = useMemo(() => research.date.toLowerCase(), [research.date]);
 
   return (
-    <Paper
-      sx={{
-        width: { xs: '100%', md: '85%', lg: '75%', xl: '60%' },
-        backgroundColor: mode === 'light' ? 'white' : 'inherit',
-        borderRadius: { xs: 2, md: 3 },
-      }}
-    >
+    <Paper sx={paperStyle}>
       <Stack gap={1} padding={4}>
         <Typography
           sx={{
@@ -80,3 +77,5 @@ export const ResearchCard = memo(({ research }: { research: Research }) => {
     </Paper>
   );
 });
+
+ResearchCard.displayName = 'ResearchCard';

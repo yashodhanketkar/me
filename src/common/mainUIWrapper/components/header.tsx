@@ -1,6 +1,12 @@
-import { AppBar, Box, Container, Toolbar, Typography, useTheme } from '@mui/material';
-import { NavDrawer, Navbar } from '../navbar';
-import { ThemeSwitch } from './themeSwitch';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import { AppBar, Box, Checkbox, Container, Toolbar, Typography, useTheme } from '@mui/material';
+import { useContext } from 'react';
+
+import { ThemeModeContext } from '@/context/theme';
+
+import { Navbar } from './navbar/bar';
+import { NavDrawer } from './navbar/drawer';
 
 export const Header = (): React.ReactElement => {
   const {
@@ -41,5 +47,23 @@ export const Header = (): React.ReactElement => {
         </Toolbar>
       </AppBar>
     </Container>
+  );
+};
+
+export const ThemeSwitch = (): React.ReactElement => {
+  const {
+    palette: { mode },
+  } = useTheme();
+  const themeMode = useContext(ThemeModeContext);
+
+  return (
+    <Checkbox
+      checked={mode === 'dark'}
+      onChange={themeMode.toggleThemeMode}
+      checkedIcon={<DarkModeIcon />}
+      icon={<LightModeIcon />}
+      aria-label="Switch between dark and light mode"
+      sx={{ color: 'orange', '&.Mui-checked': { color: 'inherit' } }}
+    />
   );
 };

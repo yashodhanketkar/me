@@ -1,7 +1,8 @@
-import ProfilePicture from '@/assets/photo.jpg';
-import type { Social } from '@/config/type';
 import { Avatar, Grid, Typography, useTheme } from '@mui/material';
 import { FaGithub, FaGlobe, FaLink, FaLinkedin, FaOrcid } from 'react-icons/fa';
+
+import ProfilePicture from '@/assets/photo.jpg';
+import type { Social } from '@/config/type';
 
 const socialList: Pick<Social, 'name' | 'type' | 'url'>[] = [
   {

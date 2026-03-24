@@ -1,6 +1,7 @@
-import { useGetSkillsQuery } from '@/context/services/resumeService';
 import { Stack, Typography } from '@mui/material';
 import { useMemo } from 'react';
+
+import { useGetSkillsQuery } from '@/context/services/resumeService';
 
 type SkillMap = Record<string, string[]>;
 type SkillItem = {

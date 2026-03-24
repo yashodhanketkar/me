@@ -1,6 +1,7 @@
+import { Stack, Typography } from '@mui/material';
+
 import type { Education } from '@/config/type';
 import { useGetEducationsQuery } from '@/context/services/resumeService';
-import { Stack, Typography } from '@mui/material';
 
 const EducationWrapper = ({ name, degree, end, grades, heading, unviersity }: Education) => {
   return (

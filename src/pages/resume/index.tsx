@@ -1,13 +1,12 @@
 import { Card, Container, Divider, useTheme } from '@mui/material';
-import {
-  ResumeEducation,
-  ResumeExperience,
-  ResumeHeader,
-  ResumeSkills,
-  ResumeTitle,
-} from './components';
 
-export const ResumePage = () => {
+import { ResumeEducation } from './components/education';
+import { ResumeExperience } from './components/experience';
+import { ResumeHeader } from './components/header';
+import { ResumeSkills } from './components/skills';
+import { ResumeTitle } from './components/title';
+
+const ResumePage = () => {
   const {
     palette: { mode },
   } = useTheme();
@@ -47,3 +46,5 @@ export const ResumePage = () => {
     </Container>
   );
 };
+
+export default ResumePage;
