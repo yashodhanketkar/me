@@ -1,5 +1,4 @@
-import { Box, Grid, Link, Paper, Typography, useTheme } from '@mui/material';
-import type { PaletteMode } from '@mui/material/styles';
+import { Box, Grid, Link, Paper, Typography } from '@mui/material';
 import { AiFillGithub, AiOutlineMail } from 'react-icons/ai';
 import { FaOrcid } from 'react-icons/fa';
 import type { IconType } from 'react-icons/lib';
@@ -38,21 +37,15 @@ export const Footer = (): React.ReactElement => {
   );
 };
 
-const SocialFactory = ({
-  social,
-  mode,
-}: {
-  social: Social;
-  mode: PaletteMode;
-}): React.ReactElement => {
+const SocialFactory = ({ social }: { social: Social }): React.ReactElement => {
   const { link, app, Icon } = social;
 
   return (
     <Link
       href={link}
       sx={{
-        color: mode === 'dark' ? 'white' : 'black',
-        ':hover': { color: mode === 'dark' ? 'red' : 'inherit' },
+        color: (theme) => (theme.palette.mode === 'dark' ? 'white' : 'black'),
+        ':hover': { color: (theme) => (theme.palette.mode === 'dark' ? 'red' : 'inherit') },
       }}
       target={app ? '_top' : '_blank'}
       rel={'noreferer noppener nofollower'}
@@ -63,14 +56,10 @@ const SocialFactory = ({
 };
 
 export const FooterSocials = (): React.ReactElement => {
-  const {
-    palette: { mode },
-  } = useTheme();
-
   return (
     <Box display={'inline-flex'} gap={1}>
       {socials.map((social) => (
-        <SocialFactory key={social.link} social={social} mode={mode} />
+        <SocialFactory key={social.link} social={social} />
       ))}
     </Box>
   );

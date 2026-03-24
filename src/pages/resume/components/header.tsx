@@ -1,4 +1,4 @@
-import { Avatar, Grid, Typography, useTheme } from '@mui/material';
+import { Avatar, Grid, Typography } from '@mui/material';
 import { FaGithub, FaGlobe, FaLink, FaLinkedin, FaOrcid } from 'react-icons/fa';
 
 import ProfilePicture from '@/assets/photo.jpg';
@@ -43,9 +43,6 @@ const socialIcon = (socialType: string) => {
 };
 
 const SocialLinkFactory = ({ name, type, url }: Pick<Social, 'name' | 'type' | 'url'>) => {
-  const {
-    palette: { mode },
-  } = useTheme();
   return (
     <Typography
       component="a"
@@ -56,7 +53,7 @@ const SocialLinkFactory = ({ name, type, url }: Pick<Social, 'name' | 'type' | '
       gap={1}
       sx={{
         ':hover': {
-          color: mode === 'dark' ? 'red' : 'inherit',
+          color: (theme) => (theme.palette.mode === 'dark' ? 'red' : 'inherit'),
         },
       }}
     >

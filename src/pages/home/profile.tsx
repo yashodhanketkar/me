@@ -1,4 +1,4 @@
-import { Button, type PaletteMode, Stack, Typography, useTheme } from '@mui/material';
+import { Button, Stack, Typography } from '@mui/material';
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import type { IconType } from 'react-icons/lib';
 
@@ -32,14 +32,12 @@ const ProfileButton = ({
   name,
   color,
   hovercolor,
-  mode,
 }: {
   link: string;
   Icon: IconType;
   name: string;
   color: string;
   hovercolor: string;
-  mode: PaletteMode;
 }) => {
   return (
     <Button
@@ -49,9 +47,9 @@ const ProfileButton = ({
       sx={{
         width: '50%',
         textTransform: 'none',
-        backgroundColor: mode === 'light' ? color : 'white',
+        backgroundColor: (theme) => (theme.palette.mode === 'light' ? color : 'white'),
         ':hover': {
-          backgroundColor: mode === 'dark' ? 'red' : hovercolor,
+          backgroundColor: (theme) => (theme.palette.mode === 'dark' ? 'red' : hovercolor),
           color: 'white',
         },
       }}
@@ -62,10 +60,6 @@ const ProfileButton = ({
 };
 
 export const ProfileInfo = () => {
-  const {
-    palette: { mode },
-  } = useTheme();
-
   return (
     <Stack gap={2}>
       <Typography variant="h5" sx={{ textAlign: { xs: 'center', md: 'left' } }}>
@@ -86,7 +80,7 @@ export const ProfileInfo = () => {
         direction={{ xs: 'column', md: 'row' }}
       >
         {profileLinks.map((profileLink) => (
-          <ProfileButton key={profileLink.link} mode={mode} {...profileLink} />
+          <ProfileButton key={profileLink.link} {...profileLink} />
         ))}
       </Stack>
     </Stack>

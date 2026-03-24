@@ -3,26 +3,6 @@ import { memo, useMemo } from 'react';
 
 import type { Project } from '@/config/type';
 
-const LinkRenderer = memo(
-  ({ mode, link, title }: { mode: string; link: string; title: string }) => {
-    return (
-      <Typography
-        variant="caption"
-        width="fit-content"
-        component="a"
-        color={mode === 'dark' ? 'red' : 'black'}
-        href={link}
-        target="_blank"
-        rel="noopener norefere"
-      >
-        {title}
-      </Typography>
-    );
-  },
-);
-
-LinkRenderer.displayName = 'LinkRenderer';
-
 export const ProjectDetails = ({ projectWork }: { projectWork: Project }) => {
   const {
     palette: { mode },
@@ -52,9 +32,9 @@ export const ProjectDetails = ({ projectWork }: { projectWork: Project }) => {
         width: { xs: '100%', md: '75%', lg: '60%' },
         borderRadius: { xs: 2, md: 3 },
         paddingX: { xs: 2 },
+        gap: 1,
+        marginX: 'auto',
       }}
-      marginX="auto"
-      spacing={1}
     >
       <Typography
         variant="h4"
@@ -71,15 +51,39 @@ export const ProjectDetails = ({ projectWork }: { projectWork: Project }) => {
         {`(${start} - ${end})`}
       </Typography>
       <Typography paddingTop={2} variant="body1" sx={{ textAlign: { xs: 'justify', md: 'left' } }}>
+        <Typography variant="overline" fontWeight={600}>
+          Description:
+        </Typography>
+        <br />
         {projectWork.description}
       </Typography>
       <LinkRenderer mode={mode} link={projectWork.source} title="Source" />
       <Stack paddingTop={2} spacing={1}>
         <Typography variant="overline" fontWeight={600}>
-          External links
+          External links:
         </Typography>
         {linkLists}
       </Stack>
     </Stack>
   );
 };
+
+const LinkRenderer = memo(
+  ({ mode, link, title }: { mode: string; link: string; title: string }) => {
+    return (
+      <Typography
+        variant="caption"
+        width="fit-content"
+        component="a"
+        color={mode === 'dark' ? 'red' : 'black'}
+        href={link}
+        target="_blank"
+        rel="noopener norefere"
+      >
+        {title}
+      </Typography>
+    );
+  },
+);
+
+LinkRenderer.displayName = 'LinkRenderer';

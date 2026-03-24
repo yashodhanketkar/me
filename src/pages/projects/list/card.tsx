@@ -1,4 +1,4 @@
-import { IconButton, Paper, Stack, Typography, useTheme } from '@mui/material';
+import { IconButton, Paper, Stack, Typography } from '@mui/material';
 import { useMemo } from 'react';
 import { FaGithub as GitHubIcon } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
@@ -6,10 +6,6 @@ import { Link as RouterLink } from 'react-router-dom';
 import type { Project } from '@/config/type';
 
 export const ProjectCard = ({ projectWork }: { projectWork: Project }) => {
-  const {
-    palette: { mode },
-  } = useTheme();
-
   const start = useMemo(() => {
     return new Date(projectWork.start)?.getFullYear() || 'Unknown';
   }, [projectWork.start]);
@@ -22,7 +18,7 @@ export const ProjectCard = ({ projectWork }: { projectWork: Project }) => {
     <Paper
       sx={{
         width: { xs: '100%', md: '85%', lg: '75%', xl: '60%' },
-        backgroundColor: mode === 'light' ? 'white' : 'inherit',
+        backgroundColor: (theme) => (theme.palette.mode === 'light' ? 'white' : 'inherit'),
         borderRadius: { xs: 2, md: 3 },
       }}
     >
@@ -69,9 +65,9 @@ export const ProjectCard = ({ projectWork }: { projectWork: Project }) => {
             sx={{
               color: 'white',
               borderRadius: 5,
-              backgroundColor: mode === 'dark' ? 'red' : 'black',
+              backgroundColor: (theme) => (theme.palette.mode === 'dark' ? 'red' : 'black'),
               ':hover': {
-                backgroundColor: mode === 'dark' ? '#bb0000' : '#444444',
+                backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#bb0000' : '#444444'),
               },
               zIndex: 100,
             }}

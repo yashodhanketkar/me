@@ -9,16 +9,12 @@ import { Navbar } from './navbar/bar';
 import { NavDrawer } from './navbar/drawer';
 
 export const Header = (): React.ReactElement => {
-  const {
-    palette: { mode },
-  } = useTheme();
-
   return (
     <Container maxWidth={false} disableGutters>
       <AppBar
         sx={{
           backgroundColor: 'transparent',
-          color: mode === 'light' ? 'black' : 'white',
+          color: (theme) => (theme.palette.mode === 'light' ? 'black' : 'white'),
           boxShadow: 'none',
           displayPrint: 'none',
         }}
@@ -29,7 +25,7 @@ export const Header = (): React.ReactElement => {
             sx={{
               fontWeight: 700,
               fontFamily: 'Dancing Script',
-              ':hover': { color: mode === 'dark' ? 'red' : 'inherit' },
+              ':hover': { color: (theme) => (theme.palette.mode === 'dark' ? 'red' : 'inherit') },
             }}
             variant="h5"
             component={'a'}
@@ -51,10 +47,10 @@ export const Header = (): React.ReactElement => {
 };
 
 export const ThemeSwitch = (): React.ReactElement => {
+  const themeMode = useContext(ThemeModeContext);
   const {
     palette: { mode },
   } = useTheme();
-  const themeMode = useContext(ThemeModeContext);
 
   return (
     <Checkbox

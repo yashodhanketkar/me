@@ -1,4 +1,4 @@
-import { Card, Container, Divider, useTheme } from '@mui/material';
+import { Card, Container, Divider } from '@mui/material';
 
 import { ResumeEducation } from './components/education';
 import { ResumeExperience } from './components/experience';
@@ -7,10 +7,6 @@ import { ResumeSkills } from './components/skills';
 import { ResumeTitle } from './components/title';
 
 const ResumePage = () => {
-  const {
-    palette: { mode },
-  } = useTheme();
-
   return (
     <Container
       sx={{
@@ -25,7 +21,7 @@ const ResumePage = () => {
             xs: 2,
             md: 4,
           },
-          backgroundColor: mode === 'dark' ? 'inherit' : 'white',
+          backgroundColor: (theme) => (theme.palette.mode === 'dark' ? 'inherit' : 'white'),
           borderRadius: 2,
           display: 'flex',
           flexDirection: 'column',
