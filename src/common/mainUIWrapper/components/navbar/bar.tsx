@@ -41,7 +41,7 @@ export const Navbar = (): React.ReactElement => {
   return (
     <Box
       sx={{
-        display: { xs: 'none', sm: 'flex' },
+        display: 'flex',
         gap: { sm: 2, lg: 5 },
         paddingX: 2,
         paddingY: 1,

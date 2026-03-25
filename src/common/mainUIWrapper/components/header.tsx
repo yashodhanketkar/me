@@ -1,6 +1,15 @@
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
-import { AppBar, Box, Checkbox, Container, Toolbar, Typography, useTheme } from '@mui/material';
+import {
+  AppBar,
+  Box,
+  Checkbox,
+  Container,
+  Toolbar,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 import { useContext } from 'react';
 
 import { ThemeModeContext } from '@/context/theme';
@@ -9,6 +18,8 @@ import { Navbar } from './navbar/bar';
 import { NavDrawer } from './navbar/drawer';
 
 export const Header = (): React.ReactElement => {
+  const isMobile = useMediaQuery('(max-width:600px)');
+
   return (
     <Container maxWidth={false} disableGutters>
       <AppBar
@@ -36,8 +47,7 @@ export const Header = (): React.ReactElement => {
             Yashodhan
           </Typography>
           <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: { xs: 'end', sm: 'center' } }}>
-            <Navbar />
-            <NavDrawer />
+            {isMobile ? <NavDrawer /> : <Navbar />}
           </Box>
           <ThemeSwitch />
         </Toolbar>

@@ -1,50 +1,28 @@
-import { Avatar, Card, Container, Grid } from '@mui/material';
+import { Stack } from '@mui/material';
+import { lazy } from 'react';
 
-import ProfilePhoto from '@/assets/photo.jpg';
+import { Hero } from './hero';
 
-import { ProfileInfo } from './profile';
+const Projects = lazy(() => import('./projects'));
 
 const HomePage = () => {
   return (
-    <Container
+    <Stack
       sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        marginTop: 4,
+        width: { xs: '100%', md: '75%' },
+        borderRadius: { xs: 2, md: 3 },
+        gap: 2,
+        marginX: 'auto',
+        '>*': {
+          width: '100%',
+          padding: 2,
+          border: '1px solid red',
+        },
       }}
     >
-      <Card
-        sx={{
-          width: { xs: '90%', md: '50%' },
-          borderRadius: { xs: 2, md: 4 },
-        }}
-        variant="elevation"
-      >
-        <Grid container>
-          <Grid
-            size={{ xs: 12, md: 4 }}
-            sx={{
-              padding: 2,
-              display: 'flex',
-              justifyContent: 'center',
-              order: { sx: 1, md: 2 },
-            }}
-          >
-            <Avatar
-              sx={{
-                width: 128,
-                height: 128,
-              }}
-              src={ProfilePhoto}
-              alt="Yashodhan Ketkar"
-            />
-          </Grid>
-          <Grid size={{ xs: 12, md: 8 }} sx={{ padding: 2, order: { sx: 2, md: 1 } }}>
-            <ProfileInfo />
-          </Grid>
-        </Grid>
-      </Card>
-    </Container>
+      <Hero />
+      <Projects />
+    </Stack>
   );
 };
 

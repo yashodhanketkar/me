@@ -68,7 +68,7 @@ export const NavDrawer = () => {
 
   return (
     <>
-      <IconButton onClick={handleDrawer} sx={{ display: { xs: 'flex', sm: 'none' } }}>
+      <IconButton onClick={handleDrawer}>
         <MenuIcon />
       </IconButton>
 
