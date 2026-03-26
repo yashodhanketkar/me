@@ -3,7 +3,8 @@ import { lazy } from 'react';
 
 import { Hero } from './hero';
 
-const Projects = lazy(() => import('./projects'));
+const Projects = lazy(() => import('./featured').then((module) => ({ default: module.Projects })));
+const Research = lazy(() => import('./featured').then((module) => ({ default: module.Research })));
 
 const HomePage = () => {
   return (
@@ -16,12 +17,13 @@ const HomePage = () => {
         '>*': {
           width: '100%',
           padding: 2,
-          border: '1px solid red',
+          // border: '1px solid red',
         },
       }}
     >
       <Hero />
       <Projects />
+      <Research />
     </Stack>
   );
 };

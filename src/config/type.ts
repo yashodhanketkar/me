@@ -5,6 +5,7 @@ export type Project = {
   start: string;
   end: string;
   source: string;
+  featured: boolean;
   links: string[];
 };
 
@@ -16,6 +17,7 @@ export type Research = {
   authors: string[];
   date: string;
   doi: string;
+  featured: boolean;
   journal: string;
 };
 
