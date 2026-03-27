@@ -1,4 +1,4 @@
-import { Box, IconButton, Stack, Typography, useMediaQuery } from '@mui/material';
+import { Box, IconButton, Stack, Typography } from '@mui/material';
 import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from 'react-icons/ai';
 import type { IconType } from 'react-icons/lib';
 
@@ -39,8 +39,8 @@ export const Hero = () => {
     <Box
       sx={{
         borderRadius: { xs: 2, md: 4 },
-        marginTop: { xs: 3, sm: 6, md: 12, lg: 24 },
-        marginBottom: { md: 6, lg: 12 },
+        marginTop: 24,
+        marginBottom: { xs: 6, lg: 12 },
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -73,7 +73,6 @@ export const Hero = () => {
 };
 
 const ProfileButton = ({ link, Icon, color, hovercolor }: ProfileLinkType) => {
-  const isMobile = useMediaQuery('(max-width:600px)');
   return (
     <IconButton
       sx={{
@@ -86,7 +85,7 @@ const ProfileButton = ({ link, Icon, color, hovercolor }: ProfileLinkType) => {
       }}
       href={link}
     >
-      <Icon size={isMobile ? 16 : 24} />
+      <Icon />
     </IconButton>
   );
 };

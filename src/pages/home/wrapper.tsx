@@ -1,4 +1,20 @@
-import { Box, Card, CircularProgress, Grid, Stack, Typography, useMediaQuery } from '@mui/material';
+import {
+  Box,
+  Button,
+  Card,
+  CircularProgress,
+  Collapse,
+  Grid,
+  Icon,
+  List,
+  ListItem,
+  ListItemText,
+  Stack,
+  Typography,
+  useMediaQuery,
+} from '@mui/material';
+import { useState } from 'react';
+import { IoIosArrowDown, IoIosArrowForward } from 'react-icons/io';
 
 import type { Project, Research } from '@/config/type';
 
@@ -16,43 +32,40 @@ export const FeaturedElement = <T extends Featured>(props: Props<T>) => {
   return <FeaturedList data={props.data} name={props.name} />;
 };
 
-export const FeaturedList = <T extends Featured>({ data, name }: { data: T[]; name: string }) => {
+const FeaturedList = <T extends Featured>({ data, name }: { data: T[]; name: string }) => {
   const featured = data?.filter((data) => data.featured) ?? [];
-
-  if (!featured.length) {
-    console.log(`No featured ${name}s found!`);
-    return;
-  }
+  const [open, setOpen] = useState(false);
 
   return (
     <Box borderRadius={{ xs: 2, md: 4 }}>
-      <Typography
-        variant="subtitle1"
-        textTransform="capitalize"
-        fontSize={24}
-        marginBottom={{ xs: 1, md: 1 }}
-      >
-        {name}
-      </Typography>
-      <Grid container direction="row" spacing={2} alignContent="stretch">
-        {featured.map((data) => (
-          <Display key={data.name} name={data.name} description={data.description} />
-        ))}
-      </Grid>
+      <FeaturedButton name={name} open={open} setOpen={setOpen} />
+      <Collapse in={open} timeout={'auto'} unmountOnExit>
+        <List sx={{ width: 'auto', maxWidth: '120ch' }}>
+          {featured.map((data) => (
+            <ListItem key={data.id}>
+              <ListItemText primary={data.name.toUpperCase()} secondary={data.description} />
+            </ListItem>
+          ))}
+        </List>
+      </Collapse>
     </Box>
   );
 };
 
 export const Display = ({ name, description }: { name: string; description: string }) => {
   return (
-    <Grid size={{ xs: 12, md: 4 }} sx={{ display: 'flex', flexDirection: 'column' }}>
+    <Grid size={{ xs: 12, lg: 6 }} display="flex" flexDirection="column">
       <Card
         variant="elevation"
         sx={{
           padding: 2,
           borderRadius: 2,
           height: '100%',
-          backgroundColor: 'background.paper',
+          backgroundColor: 'white',
+          color: 'black',
+          ':hover': {
+            backgroundColor: 'red',
+          },
         }}
       >
         <Stack gap={1}>
@@ -75,7 +88,7 @@ export const Display = ({ name, description }: { name: string; description: stri
   );
 };
 
-const PlaceHolder = ({ holderFor }: { holderFor: string }) => {
+export const PlaceHolder = ({ holderFor }: { holderFor: string }) => {
   const isMd = useMediaQuery('(max-width:900px)');
 
   return (
@@ -94,5 +107,31 @@ const PlaceHolder = ({ holderFor }: { holderFor: string }) => {
         <CircularProgress size={isMd ? 20 : 28} />
       </Typography>
     </Box>
+  );
+};
+
+export const FeaturedButton = ({
+  name,
+  open,
+  setOpen,
+}: {
+  name: string;
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
+  return (
+    <Button
+      variant="text"
+      sx={{
+        textTransform: 'capitalize',
+        fontSize: 24,
+        color: 'text.primary',
+        gap: 1,
+      }}
+      onClick={() => setOpen(!open)}
+    >
+      <Icon>{open ? <IoIosArrowDown /> : <IoIosArrowForward />}</Icon>
+      {name}
+    </Button>
   );
 };

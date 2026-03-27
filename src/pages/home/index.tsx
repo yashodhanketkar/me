@@ -1,7 +1,8 @@
-import { Stack } from '@mui/material';
+import { List, ListItem, Stack } from '@mui/material';
 import { lazy } from 'react';
 
 import { Hero } from './hero';
+import { Skills } from './skills';
 
 const Projects = lazy(() => import('./featured').then((module) => ({ default: module.Projects })));
 const Research = lazy(() => import('./featured').then((module) => ({ default: module.Research })));
@@ -21,9 +22,20 @@ const HomePage = () => {
         },
       }}
     >
-      <Hero />
-      <Projects />
-      <Research />
+      <Hero key="hero" />
+      <List>
+        <ListItem key="projects">
+          <Projects />
+        </ListItem>
+
+        <ListItem key="research">
+          <Research />
+        </ListItem>
+
+        <ListItem key="skills">
+          <Skills />
+        </ListItem>
+      </List>
     </Stack>
   );
 };
