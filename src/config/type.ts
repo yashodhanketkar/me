@@ -1,3 +1,21 @@
+export type Education = {
+  id: string;
+  degree: string;
+  unviersity: string;
+  end: string;
+  grades: string;
+  heading: string;
+};
+
+export type Experience = {
+  id: string;
+  name: string;
+  company: string;
+  start: string;
+  end: string;
+  description: string;
+};
+
 export type Project = {
   id: string;
   name: string;
@@ -5,8 +23,8 @@ export type Project = {
   start: string;
   end: string;
   source: string;
-  featured: boolean;
   links: string[];
+  featured: boolean;
 };
 
 export type Research = {
@@ -17,34 +35,14 @@ export type Research = {
   authors: string[];
   date: string;
   doi: string;
-  featured: boolean;
   journal: string;
+  featured: boolean;
 };
 
 export type Skill = {
   id: string;
   name: string;
   category: string;
-};
-
-export type Education = {
-  id: string;
-  name: string;
-  unviersity: string;
-  degree: string;
-  end: string;
-  grades: string;
-  heading: string;
-};
-
-export type Experience = {
-  id: string;
-  name: string;
-  company: string;
-  type: 'internship' | 'permanent';
-  start: string;
-  end: string;
-  description: string;
 };
 
 export type Social = {

@@ -35,9 +35,12 @@ export const ResumeSkills = () => {
       <Typography variant="h5">Skills</Typography>
       <Stack spacing={0.5}>
         {skillGroups.map(([category, skills]) => (
-          <Typography key={category}>
-            {category}: {skills.join(', ')}
-          </Typography>
+          <Stack key={category}>
+            <Typography fontWeight={600} variant="overline">
+              {category}
+            </Typography>
+            <Typography variant="body2">{skills.join(', ')}</Typography>
+          </Stack>
         ))}
       </Stack>
     </Stack>

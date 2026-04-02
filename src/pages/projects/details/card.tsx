@@ -1,4 +1,5 @@
 import { Box, Stack, Typography, useTheme } from '@mui/material';
+import { DateTime } from 'luxon';
 import { memo, useMemo } from 'react';
 
 import type { Project } from '@/config/type';
@@ -9,11 +10,13 @@ export const ProjectDetails = ({ projectWork }: { projectWork: Project }) => {
   } = useTheme();
 
   const start = useMemo(() => {
-    return new Date(projectWork.start)?.getFullYear() || 'Unknown';
+    const dt = DateTime.fromFormat(projectWork.start, 'dd/MM/yyyy');
+    return dt.isValid ? dt.year : 'Unknown';
   }, [projectWork.start]);
 
   const end = useMemo(() => {
-    return new Date(projectWork.end)?.getFullYear() || 'Ongoing';
+    const dt = DateTime.fromFormat(projectWork.end, 'dd/MM/yyyy');
+    return dt.isValid ? dt.year : 'Ongoing';
   }, [projectWork.end]);
 
   const linkLists = useMemo(
@@ -58,12 +61,14 @@ export const ProjectDetails = ({ projectWork }: { projectWork: Project }) => {
         {projectWork.description}
       </Typography>
       <LinkRenderer mode={mode} link={projectWork.source} title="Source" />
-      <Stack paddingTop={2} spacing={1}>
-        <Typography variant="overline" fontWeight={600}>
-          External links:
-        </Typography>
-        {linkLists}
-      </Stack>
+      {linkLists && (
+        <Stack paddingTop={2} spacing={1}>
+          <Typography variant="overline" fontWeight={600}>
+            External links:
+          </Typography>
+          {linkLists}
+        </Stack>
+      )}
     </Stack>
   );
 };

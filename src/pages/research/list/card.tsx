@@ -1,4 +1,4 @@
-import { Box, Paper, Stack, Typography, useTheme } from '@mui/material';
+import { Box, Paper, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { memo, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -10,6 +10,7 @@ export const ResearchCard = memo(({ research }: { research: Research }) => {
   const {
     palette: { mode },
   } = useTheme();
+  const isMobile = useMediaQuery('(max-width:600px)');
 
   const authorList = useMemo(
     () =>
@@ -33,7 +34,7 @@ export const ResearchCard = memo(({ research }: { research: Research }) => {
             fontWeight: 600,
           }}
           textTransform="capitalize"
-          variant="h4"
+          variant={isMobile ? 'h6' : 'h5'}
           width="fit-content"
           component={Link}
           to={research.id}
@@ -50,19 +51,6 @@ export const ResearchCard = memo(({ research }: { research: Research }) => {
           </Typography>
         </Box>
         <Typography
-          component="a"
-          sx={{
-            width: 'fit-content',
-            textDecoration: 'underline',
-            fontStyle: 'oblique',
-          }}
-          href={`https://doi.org/${research.doi}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {research.doi}
-        </Typography>
-        <Typography
           sx={{
             overflow: 'hidden',
             textOverflow: 'ellipsis',
@@ -72,6 +60,20 @@ export const ResearchCard = memo(({ research }: { research: Research }) => {
           }}
         >
           {research.description}
+        </Typography>
+        <Typography
+          component="a"
+          sx={{
+            width: 'fit-content',
+            textDecoration: 'underline',
+            color: mode === 'dark' ? 'red' : 'black',
+            fontStyle: 'oblique',
+          }}
+          href={`https://doi.org/${research.doi}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {research.doi}
         </Typography>
       </Stack>
     </Paper>

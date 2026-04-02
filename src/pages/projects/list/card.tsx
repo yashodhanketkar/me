@@ -1,4 +1,5 @@
 import { IconButton, Paper, Stack, Typography } from '@mui/material';
+import { DateTime } from 'luxon';
 import { useMemo } from 'react';
 import { FaGithub as GitHubIcon } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
@@ -7,11 +8,13 @@ import type { Project } from '@/config/type';
 
 export const ProjectCard = ({ projectWork }: { projectWork: Project }) => {
   const start = useMemo(() => {
-    return new Date(projectWork.start)?.getFullYear() || 'Unknown';
+    const dt = DateTime.fromFormat(projectWork.start, 'dd/MM/yyyy');
+    return dt.isValid ? dt.year : 'Unknown';
   }, [projectWork.start]);
 
   const end = useMemo(() => {
-    return new Date(projectWork.end)?.getFullYear() || 'Ongoing';
+    const dt = DateTime.fromFormat(projectWork.end, 'dd/MM/yyyy');
+    return dt.isValid ? dt.year : 'Ongoing';
   }, [projectWork.end]);
 
   return (

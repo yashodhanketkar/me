@@ -18,7 +18,6 @@ const HomePage = () => {
         '>*': {
           width: '100%',
           padding: 2,
-          // border: '1px solid red',
         },
       }}
     >

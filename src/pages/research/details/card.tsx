@@ -1,11 +1,10 @@
 import { Box, Stack, Typography } from '@mui/material';
+import { DateTime } from 'luxon';
 
 import type { Research } from '@/config/type';
 
 export const ResearchDetails = ({ research }: { research: Research }) => {
-  const year = parseYear(research.date);
-
-  const textAlign = { xs: 'center', md: 'left' };
+  const year = DateTime.fromFormat(research.date, 'MM, yyyy').year;
 
   return (
     <Stack
@@ -43,28 +42,30 @@ export const ResearchDetails = ({ research }: { research: Research }) => {
           </Typography>
         ))}
       </Box>
-      <Typography variant="overline" sx={{ textAlign }}>
+      <Typography variant="overline" fontWeight={600}>
+        Journal:
+      </Typography>
+      <Typography variant="overline">
         {research.journal} ({year})
       </Typography>
-      <Typography
-        variant="caption"
-        sx={{
-          color: (theme) => (theme.palette.mode === 'dark' ? 'red' : 'black'),
-          textAlign,
-        }}
-      >
-        {research.doi}
+      <Typography variant="overline" fontWeight={600}>
+        DOI:
       </Typography>
+      <Typography variant="caption">{research.doi}</Typography>
       <Typography variant="overline" fontWeight={600}>
         Abstract:
       </Typography>
-      <Typography>{research.abstract}</Typography>
+      <Typography variant="body2">{research.abstract}</Typography>
+      <Typography variant="overline" fontWeight={600}>
+        Link:
+      </Typography>
       <Typography
         component="a"
         sx={{
           width: 'fit-content',
           textDecoration: 'underline',
           fontStyle: 'oblique',
+          color: (theme) => (theme.palette.mode === 'dark' ? 'red' : 'black'),
         }}
         href={`https://doi.org/${research.doi}`}
         target="_blank"
@@ -74,12 +75,4 @@ export const ResearchDetails = ({ research }: { research: Research }) => {
       </Typography>
     </Stack>
   );
-};
-
-const parseYear = (date: string) => {
-  const res = new Date(date).getFullYear();
-  if (!Number.isNaN(res)) {
-    return res;
-  }
-  return date.split(',')[1].trim();
 };

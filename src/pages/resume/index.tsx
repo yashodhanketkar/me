@@ -8,21 +8,11 @@ import { ResumeTitle } from './components/title';
 
 const ResumePage = () => {
   return (
-    <Container
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-      }}
-      disableGutters
-    >
+    <Container sx={{ display: 'flex', justifyContent: 'center' }} disableGutters>
       <Card
         sx={{
-          padding: {
-            xs: 2,
-            md: 4,
-          },
+          padding: { xs: 2, md: 4 },
           backgroundColor: (theme) => (theme.palette.mode === 'dark' ? 'inherit' : 'white'),
-          borderRadius: 2,
           display: 'flex',
           flexDirection: 'column',
           gap: 2,

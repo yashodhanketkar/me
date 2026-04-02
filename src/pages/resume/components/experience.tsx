@@ -13,7 +13,17 @@ const ExperienceWrapper = ({ company, description, end, name, start }: Experienc
       <Typography>
         {start} - {end}
       </Typography>
-      <Typography width={'75ch'} variant="body2">
+      <Typography
+        variant="body2"
+        sx={{
+          display: '-webkit-box',
+          maxWidth: '65ch',
+          webllapLineClamp: 3,
+          textOverflow: 'ellipsis',
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden',
+        }}
+      >
         {description}
       </Typography>
     </Stack>
