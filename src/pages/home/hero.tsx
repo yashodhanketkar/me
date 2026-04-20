@@ -5,7 +5,6 @@ import type { IconType } from 'react-icons/lib';
 type ProfileLinkType = {
   link: string;
   Icon: IconType;
-  name: string;
   color: string;
   hovercolor: string;
 };
@@ -14,21 +13,18 @@ const profileLinks: ProfileLinkType[] = [
   {
     link: 'https://github.com/yashodhanketkar',
     Icon: AiFillGithub,
-    name: 'GitHub',
     color: 'black',
     hovercolor: '#444444',
   },
   {
     link: 'https://www.linkedin.com/in/yashodhanketkar/',
     Icon: AiFillLinkedin,
-    name: 'Linkedin',
     color: 'blue',
     hovercolor: '#0000bb',
   },
   {
     link: 'https://www.youtube.com/@yashodhanketkar',
     Icon: AiFillYoutube,
-    name: 'Linkedin',
     color: 'red',
     hovercolor: '#bb0000',
   },

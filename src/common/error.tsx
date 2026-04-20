@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 
 export const ErrorMessage = ({ custom }: { custom?: string }) => {
-  const message = custom ? custom : 'Something went wrong, please try again later!';
+  const message = custom ?? 'Something went wrong, please try again later!';
   return (
     <Typography
       sx={{

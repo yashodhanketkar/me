@@ -24,5 +24,12 @@ dist-ssr
 *.sw?
 .firebase
 
-private/
+# environment
 .env
+.env.*
+
+# local dev setups
+private/
+.scannerwork/
+sonar-project.properties
+Makefile
