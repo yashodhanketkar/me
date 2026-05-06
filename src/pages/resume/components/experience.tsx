@@ -1,25 +1,29 @@
-import { Experience } from "@/config/type";
-import { useGetExperiencesQuery } from "@/context/services/resumeService";
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography } from '@mui/material';
 
-const ExperienceWrapper = ({
-  position,
-  name,
-  type: title,
-  start,
-  end,
-  description,
-}: Experience) => {
+import type { Experience } from '@/config/type';
+import { useGetExperiencesQuery } from '@/context/services/resumeService';
+
+const ExperienceWrapper = ({ company, description, end, name, start }: Experience) => {
   return (
     <Stack>
-      <Typography textTransform={"capitalize"} fontWeight={700}>
-        {position} ({title === "internship" && title})
+      <Typography textTransform={'capitalize'} fontWeight={700}>
+        {name}
       </Typography>
-      <Typography>{name}</Typography>
+      <Typography>{company}</Typography>
       <Typography>
         {start} - {end}
       </Typography>
-      <Typography width={"75ch"} variant="body2">
+      <Typography
+        variant="body2"
+        sx={{
+          display: '-webkit-box',
+          maxWidth: '65ch',
+          webllapLineClamp: 3,
+          textOverflow: 'ellipsis',
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden',
+        }}
+      >
         {description}
       </Typography>
     </Stack>
@@ -36,7 +40,7 @@ export const ResumeExperience = () => {
     <Stack spacing={2}>
       <Typography variant="h5">Experience</Typography>
       {experienceList.map((exp) => (
-        <ExperienceWrapper key={exp._id} {...exp} />
+        <ExperienceWrapper key={exp.id} {...exp} />
       ))}
     </Stack>
   );

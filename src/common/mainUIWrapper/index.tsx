@@ -1,16 +1,14 @@
-import { Box, Container, CssBaseline, Stack } from "@mui/material";
-import { Footer, Header } from "./components";
-import { ThemeWrapper } from "./theme";
+import { Box, Container, CssBaseline } from '@mui/material';
 
-const MainUIWrapper = ({
-  children,
-}: {
-  children: React.ReactNode;
-}): React.ReactElement => {
+import { Footer } from './components/footer';
+import { Header } from './components/header';
+import { ThemeWrapper } from './theme';
+
+const MainUIWrapper = ({ children }: { children: React.ReactNode }): React.ReactElement => {
   return (
     <Container
       sx={{
-        minHeight: "100vh",
+        minHeight: '100vh',
       }}
       maxWidth={false}
       disableGutters
@@ -19,23 +17,18 @@ const MainUIWrapper = ({
         <CssBaseline />
         <Box
           sx={{
-            minHeight: "100vh",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
           }}
         >
           <Header />
           <Box
             sx={{
-              marginBottom: "auto",
-              position: "relative",
-              paddingY: {
-                xs: 2,
-                sm: 4,
-                md: 6,
-                lg: 8,
-              },
+              marginBottom: 'auto',
+              position: 'relative',
+              paddingY: { xs: 2, sm: 4, md: 6, lg: 8 },
             }}
           >
             {children}

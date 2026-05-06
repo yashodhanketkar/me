@@ -1,66 +1,53 @@
+export type Education = {
+  id: string;
+  degree: string;
+  unviersity: string;
+  end: string;
+  grades: string;
+  heading: string;
+};
+
+export type Experience = {
+  id: string;
+  name: string;
+  company: string;
+  start: string;
+  end: string;
+  description: string;
+};
+
 export type Project = {
-  _id: string;
+  id: string;
   name: string;
   description: string;
   start: string;
   end: string;
-  links: {
-    name: string;
-    url: string;
-  }[];
-  createdAt: string;
-  updatedAt: string;
+  source: string;
+  links: string[];
+  featured: boolean;
 };
 
 export type Research = {
-  _id: string;
-  title: string;
+  id: string;
+  name: string;
   description: string;
   abstract: string;
   authors: string[];
   date: string;
   doi: string;
   journal: string;
-  createdAt: string;
-  updatedAt: string;
+  featured: boolean;
 };
 
 export type Skill = {
-  _id: string;
+  id: string;
   name: string;
-  level: string;
-  createdAt: string;
-  updatedAt: string;
-};
-
-export type Education = {
-  _id: string;
-  name: string;
-  degree: string;
-  end: string;
-  grades: string;
-  heading: string;
-  createdAt: string;
-  updatedAt: string;
-};
-
-export type Experience = {
-  _id: string;
-  position: string;
-  name: string;
-  type: "internship" | "permanent";
-  start: string;
-  end: string;
-  description: string;
-  createdAt: string;
-  updatedAt: string;
+  category: string;
 };
 
 export type Social = {
-  _id: string;
+  id: string;
   name: string;
   url: string;
   type: string;
-  createdAt: string;
-  updatedAt: string;
 };

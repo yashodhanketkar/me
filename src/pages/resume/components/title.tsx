@@ -1,13 +1,8 @@
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography } from '@mui/material';
 
 export const ResumeTitle = () => {
   return (
-    <Stack
-      width={"100%"}
-      display={"flex"}
-      alignItems={"center"}
-      spacing={{ xs: 0.1, md: 1 }}
-    >
+    <Stack width={'100%'} display={'flex'} alignItems={'center'} spacing={{ xs: 0.1, md: 1 }}>
       <Typography
         noWrap
         variant="h4"

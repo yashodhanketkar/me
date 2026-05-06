@@ -1,6 +1,9 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { setupListeners } from "@reduxjs/toolkit/query";
-import { projectAPI, researchAPI, resumeAPI } from "./services";
+import { configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query';
+
+import { projectAPI } from './services/projectService';
+import { researchAPI } from './services/researchService';
+import { resumeAPI } from './services/resumeService';
 
 export const store = configureStore({
   reducer: {
@@ -12,7 +15,7 @@ export const store = configureStore({
     getDefaultMiddleware().concat(
       projectAPI.middleware,
       researchAPI.middleware,
-      resumeAPI.middleware
+      resumeAPI.middleware,
     ),
 });
 

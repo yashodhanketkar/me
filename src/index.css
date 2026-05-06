@@ -1,43 +1,54 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Flamenco&display=swap");
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 html {
   font-size: 16px;
 }
 
-* {
-  @apply p-0 m-0 box-border relative;
-}
-
-body {
-  @apply overflow-x-hidden;
-}
-
-::selection {
-  @apply bg-[#ff0000] text-white;
-}
-
-::-webkit-scrollbar {
-  @apply w-2;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-stone-950;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-stone-800 hover:bg-stone-700;
-}
-
 .resume-card {
-  @apply w-[85%] md:w-[65%] xl:w-[50%];
+  width: 55%;
+}
+
+@media (max-width: 1024px) {
+  .resume-card {
+    width: 70%;
+  }
+}
+
+@media (max-width: 600px) {
+  .resume-card {
+    width: 80%;
+  }
 }
 
 @media print {
+
+  .MuiContainer-root,
+  .resume-card,
+  .MuiBox-root {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  section,
+  .MuiPaper-root {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  body {
+    background-color: white !important;
+    margin: 0;
+  }
+
+  .MuiDivider-root {
+    border-bottom-width: 1px !important;
+    border-color: rgba(0, 0, 0, 0.12) !important;
+  }
+
   .resume-card {
     position: fixed;
     background-color: white;
@@ -49,7 +60,7 @@ body {
     z-index: 999;
   }
 
-  .resume-card > * {
+  .resume-card>* {
     color: black;
   }
 }
