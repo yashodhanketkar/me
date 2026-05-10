@@ -15,5 +15,4 @@ Key Features
 Licence
 -------
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
+This project is licensed under the [GNU GPLv3.0 License](./LICENSE) - see the [license](./LICENSE) file for details.
