@@ -2,6 +2,7 @@ import { IconButton, Paper, Stack, Typography } from '@mui/material';
 import { DateTime } from 'luxon';
 import { useMemo } from 'react';
 import { FaGithub as GitHubIcon } from 'react-icons/fa';
+import { CiStar } from 'react-icons/ci';
 import { Link as RouterLink } from 'react-router-dom';
 
 import type { Project } from '@/config/type';
@@ -20,7 +21,7 @@ export const ProjectCard = ({ projectWork }: { projectWork: Project }) => {
   return (
     <Paper
       sx={{
-        width: { xs: '100%', md: '85%', lg: '75%', xl: '60%' },
+        width: '100%',
         backgroundColor: (theme) => (theme.palette.mode === 'light' ? 'white' : 'inherit'),
         borderRadius: { xs: 2, md: 3 },
       }}
@@ -28,24 +29,31 @@ export const ProjectCard = ({ projectWork }: { projectWork: Project }) => {
       <Stack
         sx={{
           padding: { xs: 2 },
-          alignItems: 'center',
+          alignItems: 'right',
         }}
         spacing={1}
       >
-        <Typography
-          component={RouterLink}
-          to={`${projectWork.id}`}
-          variant="h4"
-          sx={{
-            fontFamily: 'serif',
-            fontSize: 24,
-            fontWeight: 600,
-            textAlign: 'center',
-          }}
-        >
-          {projectWork.name}
-        </Typography>
-        <Typography variant="subtitle1">{`(${start} - ${end})`}</Typography>
+        <div className="w-full flex justify-between items-center">
+          <Typography
+            component={RouterLink}
+            to={`${projectWork.id}`}
+            variant="h4"
+            sx={{
+              fontFamily: 'serif',
+              fontSize: 24,
+              fontWeight: 600,
+            }}
+          >
+            {projectWork.name}
+          </Typography>
+          {projectWork.featured && (
+            <span className="ml-1 mr-auto">
+              <CiStar fill="orange" size={24} />
+            </span>
+          )}
+          <Typography variant="subtitle1">{`(${start} - ${end})`}</Typography>
+        </div>
+
         <Typography
           variant="body1"
           sx={{
@@ -53,12 +61,14 @@ export const ProjectCard = ({ projectWork }: { projectWork: Project }) => {
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             display: '-webkit-box',
-            WebkitLineClamp: '2',
+            WebkitLineClamp: '1',
             WebkitBoxOrient: 'vertical',
           }}
+          title={projectWork.description}
         >
           {projectWork.description}
         </Typography>
+
         {projectWork.source && (
           <IconButton
             component="a"
@@ -73,6 +83,7 @@ export const ProjectCard = ({ projectWork }: { projectWork: Project }) => {
                 backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#bb0000' : '#444444'),
               },
               zIndex: 100,
+              width: 'fit-content',
             }}
             title="Source"
           >

@@ -25,7 +25,7 @@ const ResearchPage = () => {
 
 const ResearchList = ({ data }: { data: Research[] }) => {
   return (
-    <Stack padding={{ xs: 2, sm: 4 }} width="100%" alignItems="center" spacing={{ xs: 2, md: 4 }}>
+    <Stack className="w-full justify-center items-center content-center space-y-6 px-4">
       {data.map((researchWork: Research) => (
         <ResearchCard research={researchWork} key={researchWork.id} />
       ))}
