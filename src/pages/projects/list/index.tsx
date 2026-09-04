@@ -20,10 +20,12 @@ const ProjectPage = () => {
   if (!data) return <ErrorMessage custom="No projects found." />;
 
   return (
-    <Stack padding={{ xs: 2, sm: 4 }} width="100%" alignItems="center" spacing={{ xs: 2, md: 4 }}>
-      {data.map((projects) => (
-        <ProjectCard projectWork={projects} key={projects.id} />
-      ))}
+    <Stack className="max-w-6xl mx-auto px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2  gap-6">
+        {data.map((projects) => (
+          <ProjectCard projectWork={projects} key={projects.id} />
+        ))}
+      </div>
     </Stack>
   );
 };
